@@ -3,6 +3,16 @@
 import { glob } from "astro/loaders"
 import { defineCollection, z } from "astro:content"
 
+const blog = defineCollection({
+	loader: glob({ pattern: "**/*.mdoc", base: "./src/content/blog" }),
+	schema: () => z.object({
+		title: z.string(),
+		description: z.string().optional(),
+		date: z.date(),
+		tags: z.array(z.string()),
+	}),
+})
+
 const life = defineCollection({
 	loader: glob({ pattern: "**/*.mdoc", base: "./src/content/life" }),
 	schema: () => z.object({
@@ -13,8 +23,8 @@ const life = defineCollection({
 	}),
 })
 
-const blog = defineCollection({
-	loader: glob({ pattern: "**/*.mdoc", base: "./src/content/blog" }),
+const note = defineCollection({
+	loader: glob({ pattern: "**/*.mdoc", base: "./src/content/note" }),
 	schema: () => z.object({
 		title: z.string(),
 		description: z.string().optional(),
@@ -33,4 +43,4 @@ const all = defineCollection({
 	}),
 })
 
-export const collections = { all, life, blog }
+export const collections = { all, blog, life, note }
