@@ -6,7 +6,7 @@ An unstyled AstroJS blog starter
 
 ## Quick Start
 ```
-$ bun create cloudflare@latest
+$ npm create cloudflare@latest
 
 ╭ Create an application with Cloudflare Step 1 of 3
 │
@@ -29,3 +29,5 @@ Choose template by branch name:
 - `msisdev/giban`: unstyled html
 - ~~`msisdev/giban#styled`: styled template~~ wip
 
+If you get error `Cannot find module 'astro:content' or its corresponding type declarations`
+- `$ npx astro sync`
