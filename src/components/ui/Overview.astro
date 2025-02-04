@@ -1,0 +1,24 @@
+---
+import type { MarkdownHeading } from 'astro'
+
+interface Props {
+  headings: MarkdownHeading[]
+  readingTime?: number
+}
+
+const { headings, readingTime } = Astro.props
+---
+
+<article>
+  <p><strong>Overview</strong></p>
+  <ul>
+    {
+      headings
+        .filter(v => v.text.trim().length > 0)
+        .map(v => (
+          <li><a href={"#" + v.slug}>{v.text}</a></li>
+        ))
+    }
+  </ul>
+  <p>{readingTime}m to read</p>
+</article>

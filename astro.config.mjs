@@ -1,9 +1,8 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
-
-import cloudflare from '@astrojs/cloudflare';
-
-import markdoc from '@astrojs/markdoc';
+import { defineConfig } from "astro/config"
+import cloudflare from "@astrojs/cloudflare"
+import markdoc from "@astrojs/markdoc"
+import { remarkReadingTime } from "./src/lib/remarkReadingTime"
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,6 +11,10 @@ export default defineConfig({
       enabled: true
     }
   }),
-
-  integrations: [markdoc()]
-});
+  integrations: [
+    markdoc(),
+  ],
+  markdown: {
+    remarkPlugins: [remarkReadingTime],
+  },
+})

@@ -22,7 +22,6 @@ $ npm create cloudflare@latest
 ├ Cloning template from: msisdev/my-portfolio-v4#preview
 │
 ...
-
 ```
 
 Choose template by branch name:
@@ -31,3 +30,9 @@ Choose template by branch name:
 
 If you get error `Cannot find module 'astro:content' or its corresponding type declarations`
 - `$ npx astro sync`
+
+## Resources
+
+Anca I/O
+- // https://www.anca.io/posts/adding-necessary-features-in-the-astro-markdoc-blog/#add-the-reading-time-to-your-postpage
+- reading time

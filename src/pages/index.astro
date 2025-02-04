@@ -2,8 +2,19 @@
 import { getCollection } from "astro:content"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 
-const { href: url } = Astro.url;
+// head
+const title = "Giban"
+const description = "Welcome to the demo page"
+const { href: url } = Astro.url
+
+// content
 const allPosts = await getCollection("all")
+const recent = allPosts
+	.sort(
+		({ data: { date: dateA } }, { data: { date: dateB } }) =>
+			dateB.valueOf() - dateA.valueOf(),
+	)
+	.slice(0, 5)
 const tags = allPosts.reduce((acc, v) => {
 	v.data.tags.forEach(tag => {
 		if (Object.hasOwn(acc, tag)) {
@@ -14,24 +25,14 @@ const tags = allPosts.reduce((acc, v) => {
 	})
 	return acc
 }, {} as Record<string, number>)
-
 ---
-
-<BaseLayout
-	title="Home Page"
-	description="Welcome to the demo page"
-	{url}
->
+<BaseLayout {title} {description} {url}>
 	<main>
-		<h1>cf-astro-mdoc-blog</h1>
-		<p>All Posts</p>
+		<h1>Giban</h1>
+		<h2>Recent Posts</h2>
 		<ul>
 			{
-				allPosts
-					.sort(
-						({ data: { date: dateA } }, { data: { date: dateB } }) =>
-							new Date(dateB).valueOf() - new Date(dateA).valueOf(),
-					)
+				recent
 					.map(({ id, data: { title } }) => (
 						<li>
 							<a href={`/${id}`}>{title}</a>
@@ -40,7 +41,7 @@ const tags = allPosts.reduce((acc, v) => {
 			}
 		</ul>
 
-		<p>All Tags</p>
+		<h2>Tags</h2>
 		<ul>
 			{
 				Object.entries(tags).map(([k, v]) => (

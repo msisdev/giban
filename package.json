@@ -13,7 +13,9 @@
   "dependencies": {
     "@astrojs/cloudflare": "^12.2.1",
     "@astrojs/markdoc": "^0.12.8",
-    "astro": "^5.2.3"
+    "astro": "^5.2.3",
+    "mdast-util-to-string": "^4.0.0",
+    "reading-time": "^1.5.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250129.0",
