@@ -1,0 +1,52 @@
+---
+import { getCollection } from "astro:content"
+import BaseLayout from "@/layouts/BaseLayout.astro"
+
+const { href: url } = Astro.url;
+const allPosts = await getCollection("all")
+const tags = allPosts.reduce((acc, v) => {
+	v.data.tags.forEach(tag => {
+		if (Object.hasOwn(acc, tag)) {
+			acc[tag] += 1
+		} else {
+			acc[tag] = 1
+		}
+	})
+	return acc
+}, {} as Record<string, number>)
+
+---
+
+<BaseLayout
+	title="Home Page"
+	description="Welcome to the demo page"
+	{url}
+>
+	<main>
+		<h1>cf-astro-mdoc-blog</h1>
+		<p>All Posts</p>
+		<ul>
+			{
+				allPosts
+					.sort(
+						({ data: { date: dateA } }, { data: { date: dateB } }) =>
+							new Date(dateB).valueOf() - new Date(dateA).valueOf(),
+					)
+					.map(({ id, data: { title } }) => (
+						<li>
+							<a href={`/${id}`}>{title}</a>
+						</li>
+					))
+			}
+		</ul>
+
+		<p>All Tags</p>
+		<ul>
+			{
+				Object.entries(tags).map(([k, v]) => (
+					<li>{k}: {v}</li>
+				))
+			}
+		</ul>
+	</main>
+</BaseLayout>

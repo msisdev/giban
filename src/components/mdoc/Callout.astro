@@ -1,0 +1,29 @@
+---
+interface Props {
+  type?: string
+}
+const { type } = Astro.props
+
+function getIcon() {
+  switch (type) {
+    case "success":
+      return "✅"
+    default:
+      return "💡"
+  }
+}
+---
+
+<div class="callout">
+  <p>{getIcon()}</p>
+  <slot />
+</div>
+
+<style>
+  .callout {
+    display: inline-flex;
+    gap: .5rem;
+    width: 100%;
+    border: 1px black solid;
+  }
+</style>
