@@ -24,10 +24,6 @@ $ npm create cloudflare@latest
 ...
 ```
 
-Choose template by branch name:
-- `msisdev/giban`: unstyled html
-- ~~`msisdev/giban#styled`: styled template~~ wip
-
 If you get error `Cannot find module 'astro:content' or its corresponding type declarations`
 - `$ npx astro sync`
 
