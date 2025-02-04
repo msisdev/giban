@@ -31,8 +31,22 @@ Choose template by branch name:
 If you get error `Cannot find module 'astro:content' or its corresponding type declarations`
 - `$ npx astro sync`
 
+## Features
+- Markdoc
+- Table of content
+- Reading time
+- Search by [pagefind](https://pagefind.app/)
+- Image optimization by [Cloudflare Images](https://developers.cloudflare.com/images/transform-images/transform-via-url/)
+
 ## Resources
 
 Anca I/O
-- // https://www.anca.io/posts/adding-necessary-features-in-the-astro-markdoc-blog/#add-the-reading-time-to-your-postpage
+- https://www.anca.io/posts/adding-necessary-features-in-the-astro-markdoc-blog/#add-the-reading-time-to-your-postpage
 - reading time
+
+astro-pagefind
+- https://github.com/shishkin/astro-pagefind
+
+Thomas Ledoux
+- https://www.thomasledoux.be/blog/search-static-astro-website
+- pagefind

@@ -5,6 +5,7 @@ const paths = {
   life: "/life",
   note: "/note",
   projects: "/projects",
+  search: "/search",
 }
 
 export default paths
