@@ -1,6 +1,6 @@
 # giban
 
-
+Minimal AstroJS blog starter
 
 > giban (기반): Korean word - a foundation, or the foundation of a thing
 
