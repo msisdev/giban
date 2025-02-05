@@ -1,8 +1,8 @@
 # giban
 
-An unstyled AstroJS markdoc blog starter
+Use this blog starter and save time
 
-> giban (Korean): A foundation, or the foundation of a thing
+> giban (기반): Korean word - a foundation, or the foundation of a thing
 
 ![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white)
 ![Astro](https://img.shields.io/badge/astro-%232C2052.svg?style=for-the-badge&logo=astro&logoColor=white)
@@ -10,8 +10,14 @@ An unstyled AstroJS markdoc blog starter
 
 
 ## Quick Start
+## Without cloudflare
 ```
-$ npm create cloudflare@latest
+$ bun create astro --template msisdev/giban
+```
+
+### With Cloudflare
+```
+$ bun create cloudflare@latest
 
 ╭ Create an application with Cloudflare Step 1 of 3
 │
@@ -22,12 +28,14 @@ $ npm create cloudflare@latest
 │ category Template from a GitHub repo
 │
 ├ What's the url of git repo containing the template you'd like to use?
-│ repository msisdev/giban
+│ repository msisdev/giban#cloudflare
 │
-├ Cloning template from: msisdev/my-portfolio-v4#preview
+├ Cloning template from: msisdev/giban#cloudflare
 │
 ...
 ```
+
+### Troubleshoot
 
 If you get error `Cannot find module 'astro:content' or its corresponding type declarations`
 - `$ npx astro sync`
@@ -40,6 +48,23 @@ If you get error `Cannot find module 'astro:content' or its corresponding type d
 - Reading time
 - Search by [pagefind](https://pagefind.app/)
 - Image optimization by [Cloudflare Images](https://developers.cloudflare.com/images/transform-images/transform-via-url/)
+
+
+
+## Why should I use this?
+[AstroJS](https://astro.build/)
+- Simple and powerful
+
+[Markdoc](https://markdoc.dev/)
+- Progressively add components
+
+[PandaCSS](https://panda-css.com/)
+- Customize styles
+
+### vs Digital Garden
+This project is not like Digital Garden.  
+But you can create/edit files in Github Mobile app.  
+I think that's enough for most use cases.
 
 
 
@@ -68,3 +93,7 @@ If you get error `Cannot find module 'astro:content' or its corresponding type d
 
 [Thomas Ledoux](https://www.thomasledoux.be/blog/search-static-astro-website)
 - how to use pagefind
+
+[Realtime Colors](https://www.realtimecolors.com/)
+- Automate color change
+
