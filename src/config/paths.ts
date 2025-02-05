@@ -6,6 +6,8 @@ const paths = {
   note: "/note",
   projects: "/projects",
   search: "/search",
+  tags: "/tags",
+  tagPosts: (tag: string) => `/tags/${tag}`,
 }
 
 export default paths

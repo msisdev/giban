@@ -1,9 +1,11 @@
 ---
 import { getCollection } from "astro:content"
 import BaseLayout from "@/layouts/BaseLayout.astro"
+import paths from "@/config/paths"
+import PostThumb from "@/components/ui/PostThumb.astro"
 
 // head
-const title = "Giban Demo"
+const title = "Giban"
 const description = "Welcome to the demo page"
 const { href: url } = Astro.url
 
@@ -44,10 +46,9 @@ function getDateString(date: Date) {
 			<ul>
 				{
 					recent
-						.map(({ id, data: { title, date } }) => (
+						.map(({ id, data: { title, description, date } }) => (
 							<li>
-								<a href={`/${id}`}>{title}</a>
-								<span>&nbsp;/ {getDateString(date)}</span>
+								<PostThumb href={"/" + id} {title} {description} {date} />
 							</li>
 						))
 				}
@@ -58,8 +59,10 @@ function getDateString(date: Date) {
 			<h2>Tags</h2>
 			<ul>
 				{
-					Object.entries(tags).map(([k, v]) => (
-						<li>#{k} ({v})</li>
+					Object.entries(tags).map(([tag, v]) => (
+						<li>
+							<p><a href={paths.tagPosts(tag)}>#{tag}</a> ({v})</p>
+						</li>
 					))
 				}
 			</ul>

@@ -1,0 +1,59 @@
+---
+import type { GetStaticPaths } from "astro"
+import { getCollection, type CollectionEntry } from "astro:content"
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import PostThumb from "@/components/ui/PostThumb.astro"
+
+export const getStaticPaths = (async () => {
+  const all = await getCollection("all")
+  
+  // A post can have multiple tags.
+  const tags = all.reduce((acc, v) => {
+    v.data.tags.forEach(tag => {
+      if (Object.hasOwn(acc, tag)) {
+        acc[tag].count += 1
+        acc[tag].entries.push(v)
+      } else {
+        acc[tag] = {
+          count: 1,
+          entries: [v],
+        }
+      }
+    })
+    return acc
+  }, {} as Record<string, { count: number, entries: CollectionEntry<"all">[] }>)
+
+  return Object.entries(tags).map(([tag, v]) => ({
+    params: { slug: tag },
+    props: { ...v }
+  }))
+}) satisfies GetStaticPaths
+
+const tag = Astro.params.slug
+const { count, entries } = Astro.props
+
+// head
+const title = "Tags | Giban"
+const description = `Posts with tag ${tag}`
+const { href: url } = Astro.url
+
+---
+<BaseLayout {url} {title} {description}>
+  <main>
+    <h2>#{tag}</h2>
+    <ol>
+      {
+        entries.map((entry) => (
+          <li>
+            <PostThumb
+              href={"/" + entry.id}
+              title={entry.data.title}
+              description={entry.data.description}
+              date={entry.data.date}
+            />
+          </li>
+        ))
+      }
+    </ol>
+  </main>
+</BaseLayout>

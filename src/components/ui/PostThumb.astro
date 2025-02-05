@@ -1,0 +1,23 @@
+---
+interface Props {
+  href: string
+  title: string
+  description?: string
+  date: Date
+}
+
+const { href, title, description, date } = Astro.props
+
+function getDateString(date: Date) {
+	const y = date.getFullYear()
+	const m = date.getMonth().toString().padStart(2, "0")
+	const d = date.getDate().toString().padStart(2, "0")
+	return `${y}.${m}.${d}`
+}
+
+---
+<p>
+  <a {href}>{title}</a>
+  <span>&nbsp;/ {getDateString(date)}</span>
+  
+</p>
