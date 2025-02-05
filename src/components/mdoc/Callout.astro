@@ -1,4 +1,6 @@
 ---
+import { flex } from 'styled-system/patterns'
+
 interface Props {
   type?: string
 }
@@ -12,9 +14,23 @@ function getIcon() {
       return "💡"
   }
 }
+
+const root = flex({
+  alignItems: "center",
+  w: "full",
+  p: 4,
+  gap: 4,
+  border: "primary",
+  borderRadius: "box",
+
+  "& > *": {
+    m: 0,
+  }
+})
+
 ---
 
-<div class="callout">
+<div class={root}>
   <p>{getIcon()}</p>
   <slot />
 </div>

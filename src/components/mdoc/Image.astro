@@ -10,11 +10,6 @@ const { env } = Astro.locals.runtime
 const imgSrc = getImgSrc(env, src)
 ---
 
-<!-- <img
-  src={getSrc()}
-  alt={alt}
-  onerror=`this.onerror=null;this.src=${src}`
-/> -->
 <picture>
   <source src={imgSrc}>
   <img {src} {alt} >

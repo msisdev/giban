@@ -13,28 +13,58 @@ export const globalCss = defineGlobalStyles({
   },
 
   "header, main, footer": {
-    maxWidth: "9xl",
+    maxWidth: "7xl",
     marginLeft: "auto",
     marginRight: "auto",
+    px: 4,
     py: 4,
   },
 
   "section": {
-    my: 4,
+    mb: 8,
+  },
+
+  "h1, h2, h3, h4, h5, h6": {
+    mb: 8,
+    fontWeight: "bold",
+  },
+
+  "address, blockquote, dl, ol, p, pre, table, ul": {
+    mb: 4,
   },
 
   "h1": {
     fontSize: "5xl",
-    lineHeight: "1",
+    lineHeight: "5xl",
   },
 
   "h2": {
     fontSize: "4xl",
-    lineHeight: "1",
+    lineHeight: "4xl",
   },
 
   "h3": {
     fontSize: "3xl",
-    lineHeight: "1",
+    lineHeight: "3xl",
+  },
+
+  "h4": {
+    fontSize: "2xl",
+    lineHeight: "2xl",
+  },
+
+  "h5": {
+    fontSize: "xl",
+    lineHeight: "xl",
+  },
+
+  "h6": {
+    fontSize: "lg",
+    lineHeight: "lg",
+  },
+
+  "p": {
+    fontSize: "base",
+    lineHeight: "base",
   },
 })

@@ -1,5 +1,6 @@
 ---
 import type { MarkdownHeading } from 'astro'
+import { css } from 'styled-system/css'
 
 interface Props {
   headings: MarkdownHeading[]
@@ -7,18 +8,30 @@ interface Props {
 }
 
 const { headings, readingTime } = Astro.props
+
+const root = css({
+  bg: "bg.900",
+  borderRadius: "box",
+  p: 4,
+})
+
+const root__heading = css({
+  
+})
 ---
 
-<article>
+<section class={root}>
   <p><strong>Overview</strong></p>
   <ul>
     {
       headings
         .filter(v => v.text.trim().length > 0)
         .map(v => (
-          <li><a href={"#" + v.slug}>{v.text}</a></li>
+          <li class={root__heading}>
+            - <a href={"#" + v.slug}>{v.text}</a>
+          </li>
         ))
     }
   </ul>
   <p>{readingTime}m to read</p>
-</article>
+</section>

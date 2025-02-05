@@ -1,8 +1,5 @@
 ---
-import getImgSrc from '@/lib/get-img-src';
-
-// src/components/MarkdocFigure.astro
-// import { Image } from "astro:assets"
+import getImgSrc from '@/lib/get-img-src'
 
 interface Props {
   src: string;
@@ -16,6 +13,7 @@ const { src, alt, width, height, caption } = Astro.props
 const { env } = Astro.locals.runtime
 const imgSrc = getImgSrc(env, src)
 ---
+
 <figure>
     <picture>
       <source src={imgSrc}>
