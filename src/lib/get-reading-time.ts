@@ -5,7 +5,6 @@ const policy = {
   wordRx: /\w+/g
 }
 
-// https://www.anca.io/posts/adding-necessary-features-in-the-astro-markdoc-blog/#add-the-reading-time-to-your-postpage
 export function getReadingTime<T extends CollectionKey>(entry: CollectionEntry<T>) {
   let wordCount = 0
   wordCount = entry.body

@@ -39,27 +39,30 @@ function getDateString(date: Date) {
 
 <BaseLayout {title} {description} {url}>
 	<main>
-		<h1>{title}</h1>
-		<h2>Recent Posts</h2>
-		<ul>
-			{
-				recent
-					.map(({ id, data: { title, date } }) => (
-						<li>
-							<a href={`/${id}`}>{title}</a>
-							<span>&nbsp;/ {getDateString(date)}</span>
-						</li>
-					))
-			}
-		</ul>
+		<section>
+			<h2>Recent Posts</h2>
+			<ul>
+				{
+					recent
+						.map(({ id, data: { title, date } }) => (
+							<li>
+								<a href={`/${id}`}>{title}</a>
+								<span>&nbsp;/ {getDateString(date)}</span>
+							</li>
+						))
+				}
+			</ul>
+		</section>
 
-		<h2>Tags</h2>
-		<ul>
-			{
-				Object.entries(tags).map(([k, v]) => (
-					<li>#{k} ({v})</li>
-				))
-			}
-		</ul>
+		<section>
+			<h2>Tags</h2>
+			<ul>
+				{
+					Object.entries(tags).map(([k, v]) => (
+						<li>#{k} ({v})</li>
+					))
+				}
+			</ul>
+		</section>
 	</main>
 </BaseLayout>

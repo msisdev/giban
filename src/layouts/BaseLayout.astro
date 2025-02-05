@@ -1,8 +1,11 @@
 ---
 // https://docs.astro.build/en/guides/styling/#import-a-local-stylesheet
-import Header from "@/components/ui/Header.astro"
-import "../styles/pico.fluid.classless.min.css"
-import Footer from "@/components/ui/Footer.astro"
+import "../styles/index.css"
+
+import '@fontsource/gowun-dodum';
+
+import Header from "@/components/Header.astro"
+import Footer from "@/components/Footer.astro"
 
 const { description, title, url } = Astro.props
 ---
@@ -31,12 +34,3 @@ const { description, title, url } = Astro.props
     <Footer />
   </body>
 </html>
-
-<style>
-	/* html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	} */
-</style>

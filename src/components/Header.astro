@@ -1,0 +1,39 @@
+---
+import paths from "@/config/paths"
+import { css } from "styled-system/css"
+import { flex } from "styled-system/patterns"
+
+const root = css({
+  w: "full",
+  p: 4,
+  fontSize: "xl",
+})
+
+const root__nav = flex({
+  w: "full",
+  justifyContent: "space-between",
+  alignItems: "center",
+})
+
+const root__home = css({
+  fontSize: "3xl",
+})
+
+const root__menus = flex({
+  flexWrap: "wrap",
+  gap: 2,
+})
+---
+
+<header class={root}>
+  <nav class={root__nav}>
+    <ul>
+      <li><a href={paths.home} class={root__home}><strong>기반</strong></a></li>
+    </ul>
+    <ul class={root__menus}>
+      <li><a href={paths.search}>Search</a></li>
+      <li><a href={paths.blog}>Blog</a></li>
+      <li><a href={paths.projects}>Projects</a></li>
+    </ul>
+  </nav>
+</header>
