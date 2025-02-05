@@ -1,6 +1,6 @@
 # giban
 
-Use this blog starter and save time
+
 
 > giban (기반): Korean word - a foundation, or the foundation of a thing
 
