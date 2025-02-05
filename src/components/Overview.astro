@@ -10,14 +10,12 @@ interface Props {
 const { headings, readingTime } = Astro.props
 
 const root = css({
-  bg: "bg.900",
+  bg: "bg.950",
+  border: "primary",
   borderRadius: "box",
   p: 4,
 })
 
-const root__heading = css({
-  
-})
 ---
 
 <section class={root}>
@@ -27,7 +25,7 @@ const root__heading = css({
       headings
         .filter(v => v.text.trim().length > 0)
         .map(v => (
-          <li class={root__heading}>
+          <li>
             - <a href={"#" + v.slug}>{v.text}</a>
           </li>
         ))

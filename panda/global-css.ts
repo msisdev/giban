@@ -10,6 +10,7 @@ export const globalCss = defineGlobalStyles({
     backgroundColor: "bg",
     lineHeight: "1.5",
     fontFamily: "dodum",
+    fontSize: "base",
   },
 
   "header, main, footer": {
@@ -66,5 +67,9 @@ export const globalCss = defineGlobalStyles({
   "p": {
     fontSize: "base",
     lineHeight: "base",
+  },
+
+  "a": {
+    color: "primary",
   },
 })
