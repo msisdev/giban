@@ -21,7 +21,8 @@ const readingTime = getReadingTime(entry)
 ---
 
 <BaseLayout {url} {title} {description}>
-	<main>
+	<!-- https://pagefind.app/docs/indexing/ -->
+	<main data-pagefind-body>
 		<Overview {headings} {readingTime} />
 		<Content frontmatter={data} />
 	</main>
