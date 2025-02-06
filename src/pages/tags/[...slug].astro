@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from "astro"
 import { getCollection, type CollectionEntry } from "astro:content"
 import BaseLayout from "@/layouts/BaseLayout.astro"
-import PostThumb from "@/components/ui/PostThumb.astro"
+import PostCard from "@/components/ui/PostCard.astro"
 
 type Bucket = {
   count: number
@@ -29,7 +29,13 @@ export const getStaticPaths = (async () => {
   
   return Array.from(buckets.entries()).map(([tag, bucket]) => ({
     params: { slug: tag },
-    props: bucket
+    props: {
+      count: bucket.count,
+      entries: bucket.entries.sort(
+        ({ data: { date: dateA } }, { data: { date: dateB } }) =>
+          dateB.valueOf() - dateA.valueOf(),
+      )
+    }
   }))
 }) satisfies GetStaticPaths
 
@@ -51,7 +57,7 @@ const { href: url } = Astro.url
       {
         entries.map((entry) => (
           <li>
-            <PostThumb
+            <PostCard
               href={"/" + entry.id}
               title={entry.data.title}
               description={entry.data.description}

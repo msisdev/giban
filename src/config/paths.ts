@@ -1,9 +1,6 @@
 const paths = {
   home: "/",
-  all: "/all",
-  blog: "/blog",
-  life: "/life",
-  note: "/note",
+  posts: "/posts",
   projects: "/projects",
   search: "/search",
   tags: "/tags",
