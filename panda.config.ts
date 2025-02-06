@@ -13,12 +13,21 @@ export default defineConfig({
 
   globalFontface: panda.globalFontFace,
 
+  conditions: {
+    light: '[data-color-mode=light] &',
+    dark: '[data-color-mode=dark] &',
+  },
+
   // Useful for theme customization
   theme: {
     extend: panda.themes.defaultTheme,
   },
 
+  // Default styles
   globalCss: panda.globalCss,
+
+  // Styles that will always be prepared
+  staticCss: {},
 
   // The output directory for your css system
   outdir: "styled-system",

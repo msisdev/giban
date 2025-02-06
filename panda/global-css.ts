@@ -14,7 +14,7 @@ export const globalCss = defineGlobalStyles({
   },
 
   "header, main, footer": {
-    maxWidth: "7xl",
+    maxWidth: "5xl",
     marginLeft: "auto",
     marginRight: "auto",
     px: 4,

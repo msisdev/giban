@@ -1,0 +1,43 @@
+---
+import { Icon } from "astro-icon/components"
+import { css } from "styled-system/css"
+
+const root = css({
+  color: "primary",
+})
+
+---
+<button id="theme-switch" class={root}>
+  <!-- Icons are prepared statically. You should load both. -->
+  <Icon id="theme-switch__light" name="iconoir:sun-light" />
+  <Icon id="theme-switch__dark" name="iconoir:half-moon" />
+</button>
+
+<script>
+  import { $theme, switchTheme } from "@/lib/theme-store"
+
+  // button click -> switch theme state
+  document.getElementById("theme-switch")?.addEventListener("click", switchTheme)
+
+  // theme change -> update icon
+  $theme.subscribe(theme => {
+    const light = document.getElementById("theme-switch__light")
+    const dark = document.getElementById("theme-switch__dark")
+    if (!light || !dark) return
+
+    switch (theme) {
+      case "light":
+        light.style.display = "block"
+        dark.style.display = "none"
+        break
+
+      case "dark":
+        light.style.display = "none"
+        dark.style.display = "block"
+        break
+
+      default:
+    }
+  })
+  
+</script>

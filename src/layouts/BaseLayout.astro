@@ -8,6 +8,8 @@ import Header from "@/components/Header.astro"
 import Footer from "@/components/Footer.astro"
 
 const { description, title, url } = Astro.props
+
+const bodyId = "body"
 ---
 <!doctype html>
 <html lang="en">
@@ -28,9 +30,27 @@ const { description, title, url } = Astro.props
     <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
     <script src="/pagefind/pagefind-ui.js" is:inline></script>
   </head>
-  <body>
+  <body id={bodyId} data-color-mode="dark">
     <Header />
     <slot />
     <Footer />
   </body>
 </html>
+
+<script>
+  const bodyId = "body"
+  import { $theme } from "@/lib/theme-store"
+
+  $theme.subscribe(theme => {
+    switch (theme) {
+      default:
+      case "light":
+        document.getElementById(bodyId)?.setAttribute("data-color-mode", "light")
+        break
+
+      case "dark":
+        document.getElementById(bodyId)?.setAttribute("data-color-mode", "dark")
+        break
+    }
+  })
+</script>

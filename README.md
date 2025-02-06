@@ -104,3 +104,5 @@ I think that's enough for most use cases.
 [Realtime Colors](https://www.realtimecolors.com/)
 - Automate color change
 
+[astro-icon](https://github.com/natemoo-re/astro-icon)
+- Iconify usage

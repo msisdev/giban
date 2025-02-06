@@ -4,6 +4,8 @@ import cloudflare from "@astrojs/cloudflare"
 import markdoc from "@astrojs/markdoc"
 import pagefind from "astro-pagefind"
 
+import icon from "astro-icon";
+
 // https://astro.build/config
 export default defineConfig({
   adapter: cloudflare({
@@ -12,8 +14,5 @@ export default defineConfig({
     }
   }),
 
-  integrations: [
-    markdoc(),
-    pagefind(),
-  ],
+  integrations: [markdoc(), pagefind(), icon()],
 })

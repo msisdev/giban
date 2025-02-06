@@ -2,6 +2,8 @@
 import paths from "@/config/paths"
 import { css } from "styled-system/css"
 import { flex } from "styled-system/patterns"
+import { Icon } from "astro-icon/components"
+import ThemeSwitch from "./ThemeSwitch.astro"
 
 const root = css({
   w: "full",
@@ -20,7 +22,8 @@ const root__home = css({
 
 const root__menus = flex({
   flexWrap: "wrap",
-  gap: 2,
+  gap: 4,
+  alignItems: "center"
 })
 ---
 
@@ -30,9 +33,10 @@ const root__menus = flex({
       <li><a href={paths.home} class={root__home}><strong>기반</strong></a></li>
     </ul>
     <ul class={root__menus}>
-      <li><a href={paths.search}>Search</a></li>
-      <li><a href={paths.blog}>Blog</a></li>
-      <li><a href={paths.projects}>Projects</a></li>
+      <li><a href={paths.search}><Icon name="iconoir:search" /></a></li>
+      <li><a href={paths.blog}><Icon name="iconoir:post" /></a></li>
+      <li><a href={paths.projects}><Icon name="iconoir:handbag" /></a></li>
+      <li><ThemeSwitch /></li>
     </ul>
   </nav>
 </header>
