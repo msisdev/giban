@@ -23,9 +23,9 @@ $ bun create cloudflare@latest
 │ category Template from a GitHub repo
 │
 ├ What's the url of git repo containing the template you'd like to use?
-│ repository msisdev/giban#cloudflare
+│ repository msisdev/giban
 │
-├ Cloning template from: msisdev/giban#cloudflare
+├ Cloning template from: msisdev/giban
 │
 ...
 ```
