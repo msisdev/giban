@@ -14,5 +14,9 @@ export default defineConfig({
     }
   }),
 
-  integrations: [markdoc(), pagefind(), icon()],
+  integrations: [
+    markdoc(),
+    pagefind(),
+    icon(),
+  ],
 })
