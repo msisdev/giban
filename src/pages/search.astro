@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro"
+import AstroSearch from "astro-pagefind/components/Search"
+
 ---
 
 <BaseLayout>
@@ -7,60 +9,22 @@ import BaseLayout from "@/layouts/BaseLayout.astro"
   <script is:inline src="/pagefind/pagefind-ui.js"></script>
 
   <main>
-    <div id="search"></div>
+    <!-- <div id="search"></div> -->
+     <AstroSearch className="pagefind-ui" />
   </main>
-  <script>
-    // @ts-expect-error
-    import { PagefindUI } from "@pagefind/default-ui"
-    window.addEventListener("DOMContentLoaded", () => {
-      new PagefindUI({
-        element: "#search",
-        showSubResults: true,
-        autofocus: true,
-        showImages: false,
-      })
-      const el = document.querySelector(".pagefind-ui")
-      const input = el?.querySelector<HTMLInputElement>(`input[type="text"]`)
-      const clearButton = el?.querySelector(".pagefind-ui__search-clear")
-      // Check if the current URL has any query params
-      const url = new URL(window.location.href)
-      const params = new URLSearchParams(url.search)
-      const query = params.get("q")
-
-      // If query exists on page load
-      if (query && input) {
-        input.value = query
-        input.dispatchEvent(new Event("input", { bubbles: true }))
-      }
-      input?.addEventListener("input", (e) => {
-        const input = e.target as HTMLInputElement
-        const url = new URL(window.location.href)
-        const params = new URLSearchParams(url.search)
-        params.set("q", input.value)
-        window.history.replaceState({}, "", `${url.pathname}?${params}`)
-      })
-      clearButton?.addEventListener("click", () => {
-        const url = new URL(window.location.href)
-        const params = new URLSearchParams(url.search)
-        params.delete("q")
-        window.history.replaceState({}, "", `${url.pathname}`)
-      })
-    })
-  </script>
 </BaseLayout>
 
 <!-- https://pagefind.app/docs/ui-usage/ -->
 <style>
-  #search {
-    form {
-      
-    }
+  .pagefind-ui {
+    --pagefind-ui-scale: 0.75;
+    --pagefind-ui-primary: var(--primary);
+    --pagefind-ui-text: black;
+    --pagefind-ui-border: slategrey;
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: 0.25rem;
+    --pagefind-ui-font: sans-serif;
 
-    input {
-      border-radius: 8px;
-    }
-
-    button {
-    }
+    width: 50%;
   }
 </style>

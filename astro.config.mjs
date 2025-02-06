@@ -16,7 +16,11 @@ export default defineConfig({
 
   integrations: [
     markdoc(),
-    pagefind(),
+    pagefind({
+      indexConfig: {
+        keepIndexUrl: false,
+      },
+    }),
     icon(),
   ],
 })
