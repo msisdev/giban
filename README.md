@@ -2,7 +2,7 @@
 
 Minimal AstroJS blog starter
 
-> giban (기반): Korean word - a foundation, or the foundation of a thing
+> giban (Korean, 기반): a foundation, or the foundation of a thing
 
 ![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white)
 ![Astro](https://img.shields.io/badge/astro-%232C2052.svg?style=for-the-badge&logo=astro&logoColor=white)
@@ -10,11 +10,6 @@ Minimal AstroJS blog starter
 
 
 ## Quick Start
-## Without cloudflare
-```
-$ bun create astro --template msisdev/giban
-```
-
 ### With Cloudflare
 ```
 $ bun create cloudflare@latest
@@ -35,10 +30,25 @@ $ bun create cloudflare@latest
 ...
 ```
 
+### Without cloudflare
+1. `$ bun create astro --template msisdev/giban`
+2. Edit `astro.config.mjs`
+```js
+export default defineConfig({
+  // Rmove this block
+  adapter: cloudflare({
+    platformProxy: {
+      enabled: true
+    }
+  }),
+})
+```
+3. `$bun rm @cloudflare/workers-types`
+
 ### Troubleshoot
 
 If you get error `Cannot find module 'astro:content' or its corresponding type declarations`
-- `$ npx astro sync`
+- `$ bunx astro sync`
 
 
 
@@ -52,14 +62,11 @@ If you get error `Cannot find module 'astro:content' or its corresponding type d
 
 
 ## Why should I use this?
-[AstroJS](https://astro.build/)
-- Simple and powerful
+[AstroJS](https://astro.build/): Simple and powerful
 
-[Markdoc](https://markdoc.dev/)
-- Progressively add components
+[Markdoc](https://markdoc.dev/): Progressively add components
 
-[PandaCSS](https://panda-css.com/)
-- Customize styles
+[PandaCSS](https://panda-css.com/): Customize styles
 
 ### vs Digital Garden
 This project is not like Digital Garden.  
