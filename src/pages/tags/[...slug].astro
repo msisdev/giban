@@ -4,31 +4,36 @@ import { getCollection, type CollectionEntry } from "astro:content"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import PostThumb from "@/components/ui/PostThumb.astro"
 
+type Bucket = {
+  count: number
+  entries: CollectionEntry<"all">[]
+}
+
 export const getStaticPaths = (async () => {
   const all = (await getCollection("all")).filter(v => v.data.publish)
   
   // A post can have multiple tags.
-  const tags = all.reduce((acc, v) => {
-    v.data.tags.forEach(tag => {
-      if (Object.hasOwn(acc, tag)) {
-        acc[tag].count += 1
-        acc[tag].entries.push(v)
+  const buckets = all.reduce((map, post) => {
+    // Iterate tags of each post
+    for (const tag of post.data.tags) {
+      const find = map.get(tag)
+      if (find) {
+        find.count += 1
+        find.entries.push(post)
       } else {
-        acc[tag] = {
-          count: 1,
-          entries: [v],
-        }
+        map.set(tag, { count: 1, entries: [post] })
       }
-    })
-    return acc
-  }, {} as Record<string, { count: number, entries: CollectionEntry<"all">[] }>)
-
-  return Object.entries(tags).map(([tag, v]) => ({
+    }
+    return map
+  }, new Map<string, Bucket>())
+  
+  return Array.from(buckets.entries()).map(([tag, bucket]) => ({
     params: { slug: tag },
-    props: { ...v }
+    props: bucket
   }))
 }) satisfies GetStaticPaths
 
+// params, props
 const tag = Astro.params.slug
 const { count, entries } = Astro.props
 
@@ -41,6 +46,7 @@ const { href: url } = Astro.url
 <BaseLayout {url} {title} {description}>
   <main>
     <h2>#{tag}</h2>
+    <p>{count} posts</p>
     <ol>
       {
         entries.map((entry) => (
