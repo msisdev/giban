@@ -10,7 +10,7 @@ const description = "Welcome to the demo page"
 const { href: url } = Astro.url
 
 // content
-const allPosts = await getCollection("all")
+const allPosts = (await getCollection("all")).filter(v => v.data.publish)
 const recent = allPosts
 	.sort(
 		({ data: { date: dateA } }, { data: { date: dateB } }) =>

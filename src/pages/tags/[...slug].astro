@@ -5,7 +5,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro"
 import PostThumb from "@/components/ui/PostThumb.astro"
 
 export const getStaticPaths = (async () => {
-  const all = await getCollection("all")
+  const all = (await getCollection("all")).filter(v => v.data.publish)
   
   // A post can have multiple tags.
   const tags = all.reduce((acc, v) => {

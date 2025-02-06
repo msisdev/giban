@@ -5,7 +5,7 @@ import Overview from "@/components/Overview.astro"
 import { getReadingTime } from "@/lib/get-reading-time"
 
 export async function getStaticPaths() {
-	const lifeEntries = await getCollection("blog")
+	const lifeEntries = (await getCollection("blog")).filter(v => v.data.publish)
 	return lifeEntries.map(entry => ({
 		params: { slug: entry.id },
 		props: { entry },
