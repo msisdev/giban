@@ -27,7 +27,8 @@ export default defineConfig({
   globalCss: panda.globalCss,
 
   // Styles that will always be prepared
-  staticCss: {},
+  staticCss: {
+  },
 
   // The output directory for your css system
   outdir: "styled-system",

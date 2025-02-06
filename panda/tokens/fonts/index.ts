@@ -18,4 +18,5 @@ export const fonts = defineTokens.fonts({
   // "my-font": { value: 'var(--font-my-font), serif' },
 
   dodum: { value: "var(--font-gowun-dodum), sans-serif" },
+  base: { value: "{fonts.dodum} sans-serif" },
 })
