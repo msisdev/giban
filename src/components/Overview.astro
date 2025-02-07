@@ -3,13 +3,15 @@ import type { MarkdownHeading } from 'astro'
 import { css } from 'styled-system/css'
 
 interface Props {
+  className?: string
   headings: MarkdownHeading[]
   readingTime?: number
 }
 
-const { headings, readingTime } = Astro.props
+const { className, headings, readingTime } = Astro.props
 
 const root = css({
+  h: "fit-content",
   bg: "bg.950",
   border: "primary",
   borderRadius: "box",
@@ -18,7 +20,7 @@ const root = css({
 
 ---
 
-<section class={root}>
+<section class={`${root} ${className}`}>
   <p><strong>Overview</strong></p>
   <ul>
     {

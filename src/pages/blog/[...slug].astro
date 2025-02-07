@@ -3,6 +3,8 @@ import { getCollection, render } from "astro:content"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import Overview from "@/components/Overview.astro"
 import { getReadingTime } from "@/lib/get-reading-time"
+import { flex, grid } from "styled-system/patterns"
+import { css } from "styled-system/css"
 
 export async function getStaticPaths() {
 	const lifeEntries = (await getCollection("blog")).filter(v => v.data.publish)
@@ -18,12 +20,32 @@ const { data } = entry
 const { description, title } = data
 const { Content, headings } = await render(entry)
 const readingTime = getReadingTime(entry)
+
+const root = css({
+	lg: {
+		display: "grid",
+		gridTemplateColumns: "16rem 1fr",
+		gap: "8"
+	},
+})
+
+const root__overview = css({
+	lg: {
+    position: "sticky",
+    top: "8",
+  },
+})
+
+const root__content = css({
+})
 ---
 
 <BaseLayout {url} {title} {description}>
 	<!-- https://pagefind.app/docs/indexing/ -->
-	<main data-pagefind-body>
-		<Overview {headings} {readingTime} />
-		<Content frontmatter={data} />
+	<main class={root}>
+		<Overview className={root__overview} {headings} {readingTime} />
+		<section data-pagefind-body class={root__content}>
+			<Content frontmatter={data} />
+		</section>
 	</main>
 </BaseLayout>
