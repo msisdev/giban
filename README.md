@@ -58,6 +58,8 @@ If you get error `Cannot find module 'astro:content' or its corresponding type d
 - Reading time
 - Search by [pagefind](https://pagefind.app/)
 - Image optimization by [Cloudflare Images](https://developers.cloudflare.com/images/transform-images/transform-via-url/)
+- PandaCSS
+- Change color instantly (with Realtime Color)
 
 
 
