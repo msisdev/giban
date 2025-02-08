@@ -58,19 +58,17 @@ If you get error `Cannot find module 'astro:content' or its corresponding type d
 - Reading time
 - Search by [pagefind](https://pagefind.app/)
 - Image optimization by [Cloudflare Images](https://developers.cloudflare.com/images/transform-images/transform-via-url/)
+- Style with PandaCSS
 - Dark mode switch
 
 
 
-## Why should I use this?
+## Why should I use this stack?
 [AstroJS](https://astro.build/): Simple and powerful
 
 [Markdoc](https://markdoc.dev/): Progressively add components
 
-[PandaCSS](https://panda-css.com/): Customize styles
-
-### AstroJS?
-Currently there's no competitor.
+[PandaCSS](https://panda-css.com/): Zero runtime CSS-in-JS
 
 ### MDX vs Markdoc
 MDX is like JSX.
@@ -94,11 +92,6 @@ I'm normal markdown line.
 ```
 
 But you should aware that [@astrojs/markdoc integration](https://docs.astro.build/en/guides/integrations-guide/markdoc/) is in experimental stage.
-
-### PandaCSS?
-
-PandaCSS 
-
 
 ### vs Digital Garden
 This project is not like Digital Garden.  
