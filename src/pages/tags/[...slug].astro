@@ -3,17 +3,18 @@ import type { GetStaticPaths } from "astro"
 import { getCollection, type CollectionEntry } from "astro:content"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import PostCard from "@/components/ui/PostCard.astro"
+import paths from "@/config/paths"
 
 type Bucket = {
   count: number
-  entries: CollectionEntry<"all">[]
+  entries: CollectionEntry<"blog">[]
 }
 
 export const getStaticPaths = (async () => {
-  const all = (await getCollection("all")).filter(v => v.data.publish)
+  const blogs = (await getCollection("blog")).filter(v => v.data.publish)
   
   // A post can have multiple tags.
-  const buckets = all.reduce((map, post) => {
+  const buckets = blogs.reduce((map, post) => {
     // Iterate tags of each post
     for (const tag of post.data.tags) {
       const find = map.get(tag)
@@ -55,13 +56,11 @@ const { href: url } = Astro.url
     <p>{count} posts</p>
     <ol>
       {
-        entries.map((entry) => (
+        entries.map(({ id, data: { title, description, date }}) => (
           <li>
             <PostCard
-              href={"/" + entry.id}
-              title={entry.data.title}
-              description={entry.data.description}
-              date={entry.data.date}
+              href={paths.blogDetail(id)}
+              {title} {description} {date}
             />
           </li>
         ))

@@ -1,5 +1,6 @@
 const paths = {
   home: "/",
+  blogDetail: (id: string) => `/blogs/${id}`,
   posts: "/posts",
   projects: "/projects",
   search: "/search",

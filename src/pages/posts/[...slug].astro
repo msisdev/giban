@@ -3,19 +3,20 @@ import type { GetStaticPaths } from "astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import { getCollection } from "astro:content"
 import PostCard from "@/components/ui/PostCard.astro"
+import paths from "@/config/paths"
 
 export const getStaticPaths = (async () => {
   const size = 10
 
-  const all = (await getCollection("all"))
+  const blogs = (await getCollection("blog"))
     .filter(v => v.data.publish)
     
-  const length = all.length
+  const length = blogs.length
 
   // chunk entries
   const chunks = []
   for (let i = 0; i < length; i += size) {
-    chunks.push(all.slice(i, Math.min(i + size, length)))
+    chunks.push(blogs.slice(i, Math.min(i + size, length)))
   }
 
   return chunks.map((chunk, page) => ({
@@ -51,13 +52,11 @@ const { href: url } = Astro.url
     <section>
       <ol>
         {
-          entries.map((entry) => (
+          entries.map(({ id, data: { title, description, date }}) => (
             <li>
               <PostCard
-                href={"/" + entry.id}
-                title={entry.data.title}
-                description={entry.data.description}
-                date={entry.data.date}
+                href={paths.blogDetail(id)}
+                {title} {description} {date}
               />
             </li>
           ))

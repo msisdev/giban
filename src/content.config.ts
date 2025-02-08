@@ -16,9 +16,4 @@ const blog = defineCollection({
 	schema: () => schema,
 })
 
-const all = defineCollection({
-	loader: glob({ pattern: "**/*.mdoc", base: "./src/content" }),
-	schema: () => schema,
-})
-
-export const collections = { all, blog }
+export const collections = { blog }

@@ -10,8 +10,8 @@ const description = "Welcome to the demo page"
 const { href: url } = Astro.url
 
 // content
-const allPosts = (await getCollection("all")).filter(v => v.data.publish)
-const recent = allPosts
+const blogs = (await getCollection("blog")).filter(v => v.data.publish)
+const recent = blogs
 	.sort(
 		({ data: { date: dateA } }, { data: { date: dateB } }) =>
 			dateB.valueOf() - dateA.valueOf(),
@@ -19,7 +19,7 @@ const recent = allPosts
 	.slice(0, 5)
 
 // tags
-const tags = allPosts.reduce((acc, v) => {
+const tags = blogs.reduce((acc, v) => {
 	v.data.tags.forEach(tag => {
 		if (Object.hasOwn(acc, tag)) {
 			acc[tag] += 1
@@ -29,13 +29,6 @@ const tags = allPosts.reduce((acc, v) => {
 	})
 	return acc
 }, {} as Record<string, number>)
-
-function getDateString(date: Date) {
-	const y = date.getFullYear()
-	const m = date.getMonth().toString().padStart(2, "0")
-	const d = date.getDate().toString().padStart(2, "0")
-	return `${y}.${m}.${d}`
-}
 
 ---
 
@@ -48,7 +41,7 @@ function getDateString(date: Date) {
 					recent
 						.map(({ id, data: { title, description, date } }) => (
 							<li>
-								<PostCard href={"/" + id} {title} {description} {date} />
+								<PostCard href={paths.blogDetail(id)} {title} {description} {date} />
 							</li>
 						))
 				}
