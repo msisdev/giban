@@ -1,6 +1,6 @@
-# giban
+# [giban](https://giban.pages.dev/)
 
-Minimal AstroJS blog starter
+Minimal blog starter with AstroJS
 
 > giban (Korean, 기반): a foundation, or the foundation of a thing
 
@@ -58,6 +58,7 @@ If you get error `Cannot find module 'astro:content' or its corresponding type d
 - Reading time
 - Search by [pagefind](https://pagefind.app/)
 - Image optimization by [Cloudflare Images](https://developers.cloudflare.com/images/transform-images/transform-via-url/)
+- Dark mode switch
 
 
 
@@ -68,14 +69,57 @@ If you get error `Cannot find module 'astro:content' or its corresponding type d
 
 [PandaCSS](https://panda-css.com/): Customize styles
 
+### AstroJS?
+Currently there's no competitor.
+
+### MDX vs Markdoc
+MDX is like JSX.
+```
+import Callout from '../components/Callout.astro'
+
+I'm normal markdown line.
+
+<Callout type="check">
+  I'm callout component
+</Callout>
+```
+
+While Markdoc is like expressive markdown.
+```
+I'm normal markdown line.
+
+{% callout type="check" %}
+  I'm callout component
+{% /callout %}
+```
+
+But you should aware that [@astrojs/markdoc integration](https://docs.astro.build/en/guides/integrations-guide/markdoc/) is in experimental stage.
+
+### PandaCSS?
+
+PandaCSS 
+
+
 ### vs Digital Garden
 This project is not like Digital Garden.  
-But you can create/edit files in Github Mobile app.  
-I think that's enough for most use cases.
+But you can create/edit files in Github Mobile app.
 
 
 
-## Resources
+## Guides
+
+### How to change color set
+You can use [Realtime Colors](https://www.realtimecolors.com/) to automate this.
+Follow this [guide](https://github.com/msisdev/giban/tree/master/panda/tokens/colors)
+
+### How to use icon
+This project is using [Astro Icon](https://www.astroicon.dev/).
+Astro Icon supports [Iconify](https://iconify.design/).
+Currently [iconoir](https://icon-sets.iconify.design/iconoir/?keyword=iconoi) is installed. To replace this, follow this [guide](https://www.astroicon.dev/guides/customization/#open-source-icon-sets).
+
+
+
+## Refs
 
 [AstroJS discussion](https://github.com/withastro/astro/issues/5711#issuecomment-1848331875)
 - When you encounter compile error on `astro:content`
