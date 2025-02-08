@@ -3,7 +3,7 @@ import paths from "@/config/paths"
 import { css } from "styled-system/css"
 import { flex } from "styled-system/patterns"
 import { Icon } from "astro-icon/components"
-import ThemeSwitch from "./ThemeSwitch.astro"
+import ColorModeSwitch from "./ColorModeSwitch.astro"
 
 const root = css({
   w: "full",
@@ -36,7 +36,7 @@ const root__menus = flex({
       <li><a href={paths.search}><Icon name="iconoir:search" /></a></li>
       <li><a href={paths.posts}><Icon name="iconoir:post" /></a></li>
       <li><a href={paths.projects}><Icon name="iconoir:handbag" /></a></li>
-      <li><ThemeSwitch /></li>
+      <li><ColorModeSwitch /></li>
     </ul>
   </nav>
 </header>
