@@ -5,7 +5,6 @@ export const globalCss = defineGlobalStyles({
     height: "full",
     minHeight: "100vh",
     width: "full",
-    display: "block",
     color: "text",
     backgroundColor: "bg",
     lineHeight: "1.5",
@@ -13,12 +12,22 @@ export const globalCss = defineGlobalStyles({
     fontSize: "base",
   },
 
+  "body": {
+    display: "flex",
+    flexDirection: "column",
+  },
+
   "header, main, footer": {
+    width: "full",
     maxWidth: "6xl",
     marginLeft: "auto",
     marginRight: "auto",
     px: 4,
     py: 4,
+  },
+
+  "main": {
+    flex: "1",
   },
 
   "section": {
