@@ -2,7 +2,7 @@ import { defineGlobalStyles } from "@pandacss/dev"
 
 export const globalCss = defineGlobalStyles({
   "html, body": {
-    height: "full",
+    height: "fit-content",
     minHeight: "100vh",
     width: "full",
     color: "text",
@@ -22,8 +22,7 @@ export const globalCss = defineGlobalStyles({
     maxWidth: "6xl",
     marginLeft: "auto",
     marginRight: "auto",
-    px: 4,
-    py: 4,
+    p: 4,
   },
 
   "main": {
@@ -78,7 +77,36 @@ export const globalCss = defineGlobalStyles({
     lineHeight: "base",
   },
 
-  "a": {
+  "a, button": {
     color: "primary",
+    position: "relative",
+    _hover: {
+      color: "primary.500"
+    },
+  },
+
+  "hr": {
+    color: "primary"
+  },
+
+  /**
+   * Table
+   */
+  "table": {
+    w: "full",
+    overflow: "auto",
+  },
+  "thead": {
+    fontWeight: "bold",
+  },
+  "tr": {
+    borderBottom: "1px solid {colors.text.300}",
+    lineHeight: 2,
+  },
+  "th, td": {
+    p: 2,
+  },
+  "th": {
+    textTransform: "uppercase",
   },
 })
