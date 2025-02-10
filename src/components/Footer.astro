@@ -1,10 +1,30 @@
 ---
+import urls from "@/config/urls"
+import { Icon } from "astro-icon/components"
 import { css } from "styled-system/css"
 
 const root = css({
   padding: 4,
 })
+
+const root__line1 = css({
+  display: "flex",
+  alignItems: "center",
+  gap: 4,
+  
+  "& a": {
+    display: "flex",
+    alignItems: "center",
+    gap: 2,
+  },
+})
 ---
 <footer class={root}>
-  &copy;2025 by msisdev All rights reserved.
+  <p class={root__line1}>
+    &copy;2025 by msisdev All rights reserved.
+    <a href={urls.github} aria-label="Github repository">
+      <Icon name="iconoir:github" /> Github
+    </a>
+  </p>
+  
 </footer>
