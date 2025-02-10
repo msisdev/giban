@@ -91,15 +91,11 @@ Checkout either [giscus](https://giscus.app) or [utterances](https://utteranc.es
 ## Why giban?
 Or, why use giban stack?
 
-[Markdoc](https://markdoc.dev/): Progressively add components
-
-[PandaCSS](https://panda-css.com/): Zero runtime CSS-in-JS
-
 ### [AstroJS](https://astro.build/)
 AstroJS is a new FrontEnd framework for JS.
 
 
-### MDX vs Markdoc
+### [MDX](https://mdxjs.com/) vs [Markdoc](https://markdoc.dev/)
 MDX is like JSX.
 ```markdown
 import Callout from '../components/Callout.astro'
@@ -161,16 +157,6 @@ const root__line1 = css({
 </footer>
 ```
 
-
-#### vs Tailwind
-
-
-#### vs Vanilla Extract
-
-
-
-Using PandaCSS, you can 
-
 ### vs Obsidian Digital Garden
 You may find [Digital Garden](https://dg-docs.ole.dev/) is more useful, if you want to use Obsidian.
 
@@ -189,6 +175,7 @@ Follow this [guide](https://github.com/msisdev/giban/tree/master/panda/tokens/co
 
 ### How to use icon
 This project is using [Astro Icon](https://www.astroicon.dev/).
+
 Astro Icon supports [Iconify](https://iconify.design/).
 Currently [iconoir](https://icon-sets.iconify.design/iconoir/?keyword=iconoi) is installed. To replace this, follow this [guide](https://www.astroicon.dev/guides/customization/#open-source-icon-sets).
 
