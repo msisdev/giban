@@ -7,10 +7,26 @@ Minimal blog starter with AstroJS
 ![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white)
 ![Astro](https://img.shields.io/badge/astro-%232C2052.svg?style=for-the-badge&logo=astro&logoColor=white)
 
+## Overview
+- [Quick Start](#quick-start)
+  - [With cloudflare](#with-cloudflare)
+  - [Without cloudflare](#without-cloudflare)
+  - [Troubleshoot](#troubleshoot)
+- [Features](#features)
+  - [About comment system](#about-comment-system)
+- [Why giban](#why-giban)
+  - [AstroJS](#astrojs)
+  - [MDX vs Markdoc](#mdx-vs-markdoc)
+  - [vs Digital Garden](#vs-digital-garden)
+- [Guides](#guides)
+  - [How to change color set](#how-to-change-color-set)
+  - [How to use icon](#how-to-use-icon)
+- [Refs](#refs)
+
 
 
 ## Quick Start
-### With Cloudflare
+### With cloudflare
 ```
 $ bun create cloudflare@latest
 
@@ -32,17 +48,18 @@ $ bun create cloudflare@latest
 
 ### Without cloudflare
 1. `$ bun create astro --template msisdev/giban`
-2. Edit `astro.config.mjs`
-```js
-export default defineConfig({
-  // Rmove this block
-  adapter: cloudflare({
-    platformProxy: {
-      enabled: true
-    }
-  }),
-})
-```
+2. Remove cloudflare adapter
+    ```js
+    // astro.config.mjs
+    export default defineConfig({
+      // Rmove this block
+      adapter: cloudflare({
+        platformProxy: {
+          enabled: true
+        }
+      }),
+    })
+    ```
 3. `$bun rm @cloudflare/workers-types`
 
 ### Troubleshoot
@@ -54,25 +71,37 @@ If you get error `Cannot find module 'astro:content' or its corresponding type d
 
 ## Features
 - Markdoc
-- Table of content
-- Reading time
-- Search by [pagefind](https://pagefind.app/)
-- Image optimization by [Cloudflare Images](https://developers.cloudflare.com/images/transform-images/transform-via-url/)
+- Common blog patterns
+  - Table of content
+  - Reading time
+  - Search by [pagefind](https://pagefind.app/)
+  - Image optimization by [Cloudflare Images](https://developers.cloudflare.com/images/transform-images/transform-via-url/)
 - Style with PandaCSS
-- Dark mode switch
+  - Dark mode switch
+
+### About Comment system
+I intentionally didn't add comment system because
+1. it is not essential
+2. it is easy to be added.
+
+Checkout either [giscus](https://giscus.app) or [utterances](https://utteranc.es/).
 
 
 
-## Why should I use this stack?
-[AstroJS](https://astro.build/): Simple and powerful
+## Why giban?
+Or, why use giban stack?
 
 [Markdoc](https://markdoc.dev/): Progressively add components
 
 [PandaCSS](https://panda-css.com/): Zero runtime CSS-in-JS
 
+### [AstroJS](https://astro.build/)
+AstroJS is a new FrontEnd framework for JS.
+
+
 ### MDX vs Markdoc
 MDX is like JSX.
-```
+```markdown
 import Callout from '../components/Callout.astro'
 
 I'm normal markdown line.
@@ -83,7 +112,7 @@ I'm normal markdown line.
 ```
 
 While Markdoc is like expressive markdown.
-```
+```markdoc
 I'm normal markdown line.
 
 {% callout type="check" %}
@@ -91,11 +120,64 @@ I'm normal markdown line.
 {% /callout %}
 ```
 
-But you should aware that [@astrojs/markdoc integration](https://docs.astro.build/en/guides/integrations-guide/markdoc/) is in experimental stage.
+But you should aware that [@astrojs/markdoc](https://docs.astro.build/en/guides/integrations-guide/markdoc/) integration is in experimental stage.
 
-### vs Digital Garden
-This project is not like Digital Garden.  
-But you can create/edit files in Github Mobile app.
+### [PandaCSS](https://panda-css.com/)
+PandaCSS is a zero runtime CSS-in-JS that generates static css files at build stage.
+PandaCSS uses helper function to gerate class string. This lets your html remain simple.  
+
+Writing styles in PandaCSS is like:
+```astro
+---
+// Footer.astro
+import urls from "@/config/urls"
+import { Icon } from "astro-icon/components"
+import { css } from "styled-system/css"
+
+const root = css({
+  padding: 4,
+})
+
+const root__line1 = css({
+  display: "flex",
+  alignItems: "center",
+  gap: 4,
+  
+  "& a": {
+    display: "flex",
+    alignItems: "center",
+    gap: 2,
+  },
+})
+---
+<footer class={root}>
+  <p class={root__line1}>
+    &copy;2025 by msisdev All rights reserved.
+    <a href={urls.github} aria-label="Github repository">
+      <Icon name="iconoir:github" /> Github
+    </a>
+  </p>
+  
+</footer>
+```
+
+
+#### vs Tailwind
+
+
+#### vs Vanilla Extract
+
+
+
+Using PandaCSS, you can 
+
+### vs Obsidian Digital Garden
+You may find [Digital Garden](https://dg-docs.ole.dev/) is more useful, if you want to use Obsidian.
+
+But you don't need Digital Garden if-
+- you find Digital Garden stack is too much for your blog.
+- you don't need Obsidian.
+  - With help of Github Mobile app, you can create/edit files anywhere.
 
 
 
