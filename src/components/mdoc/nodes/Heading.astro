@@ -1,6 +1,5 @@
 ---
 import { css } from "styled-system/css"
-import { flex } from "styled-system/patterns"
 import { Icon } from "astro-icon/components"
 
 interface Props {
@@ -9,25 +8,31 @@ interface Props {
 }
 const { level, id } = Astro.props
 
-const root = flex({
+const root = css({
   gap: 4,
+  wordBreak: "break-all",
+  textWrap: "wrap",
 })
 
-const style__h2 = flex({
+const h2 = css({
   gap: 4,
   mt: 32,
   mb: 2,
+  wordBreak: "break-all",
 })
+
+const root__span = css({ verticalAlign: "middle" })
 
 const root__a = css({
   display: "none",
-  _groupHover: {
-    display: "block",
-  },
+  _groupHover: { display: "inline" },
+  "& svg": { display: "inline" },
+
+  ml: 1,
   color: "primary.300",
 })
 
-const style__hr = css({
+const root_hr = css({
   mb: 8,
 })
 ---
@@ -35,7 +40,7 @@ const style__hr = css({
 {
   level == 1 ? (
     <h1 {id} class={root + " " + "group"}>
-      <slot />
+      <span class={root__span}><slot /></span>
       <a href={"#" + id} class={root__a}>
         <Icon name="iconoir:link" />
       </a>
@@ -44,19 +49,19 @@ const style__hr = css({
 
   level == 2 ? (
     <>
-      <h2 {id} class={style__h2 + " " + "group"}>
-        <slot />
+      <h2 {id} class={`${root} ${h2} group`}>
+        <span class={root__span}><slot /></span>
         <a href={"#" + id} class={root__a}>
           <Icon name="iconoir:link" />
         </a>
       </h2>
-      <hr class={style__hr}/>
+      <hr class={root_hr}/>
     </>
   ) :
 
   level == 3 ? (
     <h3 {id} class={root + " " + "group"}>
-      <slot />
+      <span class={root__span}><slot /></span>
       <a href={"#" + id} class={root__a}>
         <Icon name="iconoir:link" />
       </a>
@@ -65,7 +70,7 @@ const style__hr = css({
 
   level == 4 ? (
     <h4 {id} class={root + " " + "group"}>
-      <slot />
+      <span class={root__span}><slot /></span>
       <a href={"#" + id} class={root__a}>
         <Icon name="iconoir:link" />
       </a>
@@ -74,7 +79,7 @@ const style__hr = css({
 
   level == 5 ? (
     <h5 {id} class={root + " " + "group"}>
-      <slot />
+      <span class={root__span}><slot /></span>
       <a href={"#" + id} class={root__a}>
         <Icon name="iconoir:link" />
       </a>
@@ -82,7 +87,7 @@ const style__hr = css({
   ) :
 
   <h6 {id} class={root + " " + "group"}>
-    <slot />
+    <span class={root__span}><slot /></span>
     <a href={"#" + id} class={root__a}>
         <Icon name="iconoir:link" />
       </a>
