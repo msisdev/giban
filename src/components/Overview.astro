@@ -1,4 +1,5 @@
 ---
+import paths from '@/config/paths'
 import type { MarkdownHeading } from 'astro'
 import { Icon } from 'astro-icon/components'
 import { css } from 'styled-system/css'
@@ -12,7 +13,7 @@ interface Props {
   readingTime: number
 }
 
-const { className, title, headings, readingTime } = Astro.props
+const { className, title, tags, headings, readingTime } = Astro.props
 
 const heading1 = headings.find(v => v.depth == 1)
 
@@ -22,12 +23,20 @@ const root = css({
   borderRadius: "box",
   p: 4,
 
-  "& ul": {
-    listStyleType: "disc",
-  },
+  
+})
+
+const root__headings = css({
+  listStyleType: "disc",
 
   "& li": {
-    ml: 4, mb: 1,
+    ml: 4,
+    mb: 1,
+  },
+
+  "& a": {
+    display: "block",
+    w: "full",
   },
 })
 
@@ -40,34 +49,50 @@ const info__item = flex({
   alignItems: "center",
   gap: 1,
 })
+
+const root__tags = flex({
+  gap: 4,
+})
 ---
 
 <aside class={`${root} ${className}`}>
-  <!-- Title -->
-  <a href={"#" + heading1?.slug}>
-    <p><strong>{title}</strong></p>
-  </a>
+  <section>
+    <!-- Title -->
+    <a href={"#" + heading1?.slug}>
+      <p><strong>{title}</strong></p>
+    </a>
 
-  <!-- Headings -->
-  <ul>
-    {
-      headings
-        .filter(v => v.text.trim().length > 0 && v.depth == 2)
-        .map(v => (
-          <li>
-            <a href={"#" + v.slug}>{v.text}</a>
-          </li>
-        ))
-    }
-  </ul>
+    <!-- Headings -->
+    <ul class={root__headings}>
+      {
+        headings
+          .filter(v => v.text.trim().length > 0 && v.depth == 2)
+          .map(v => (
+            <li>
+              <a href={"#" + v.slug}>{v.text}</a>
+            </li>
+          ))
+      }
+    </ul>
+  </section>
 
-  <div class={info}>
+  <section class={info}>
     <!-- Reading time -->
     <p class={info__item}>
       <Icon name="iconoir:clock" />
       <span>{readingTime}m to read</span>
     </p>
-  </div>
+  </section>
+
+  <ul class={root__tags}>
+    {
+      tags.map(tag => (
+        <li>
+          <a href={paths.tagPosts(tag)}>#{tag}</a>
+        </li>
+      ))
+    }
+  </ul>
   
 </aside>
 

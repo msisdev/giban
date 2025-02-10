@@ -6,13 +6,21 @@ import type { MarkdownHeading } from 'astro'
 
 interface Props {
   title: string
+	tags: string[]
   description: string
   url: string
   headings: MarkdownHeading[]
   readingTime: number
 }
 
-const { title, description, url, headings, readingTime } = Astro.props
+const {
+	title,
+	tags,
+	description,
+	url,
+	headings,
+	readingTime,
+} = Astro.props
 
 const root = css({
 	lg: {
@@ -30,15 +38,19 @@ const root__overview = css({
   },
 })
 
-const root__content = css({
-})
 ---
 <BaseLayout {url} {title} {description}>
 	<main class={root}>
-		<Overview className={root__overview} {title} {headings} {readingTime} />
+		<Overview
+			className={root__overview}
+			{title}
+			{tags}
+			{headings}
+			{readingTime}
+		/>
     
     <!-- https://pagefind.app/docs/indexing/ -->
-		<section data-pagefind-body class={root__content}>
+		<section data-pagefind-body>
 			<slot />
 		</section>
 	</main>
