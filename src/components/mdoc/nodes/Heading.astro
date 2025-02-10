@@ -1,0 +1,90 @@
+---
+import { css } from "styled-system/css"
+import { flex } from "styled-system/patterns"
+import { Icon } from "astro-icon/components"
+
+interface Props {
+  level: number
+  id: string
+}
+const { level, id } = Astro.props
+
+const root = flex({
+  gap: 4,
+})
+
+const style__h2 = flex({
+  gap: 4,
+  mt: 32,
+  mb: 2,
+})
+
+const root__a = css({
+  display: "none",
+  _groupHover: {
+    display: "block",
+  },
+  color: "primary.300",
+})
+
+const style__hr = css({
+  mb: 8,
+})
+---
+
+{
+  level == 1 ? (
+    <h1 {id} class={root + " " + "group"}>
+      <slot />
+      <a href={"#" + id} class={root__a}>
+        <Icon name="iconoir:link" />
+      </a>
+    </h1>
+  ) :
+
+  level == 2 ? (
+    <>
+      <h2 {id} class={style__h2 + " " + "group"}>
+        <slot />
+        <a href={"#" + id} class={root__a}>
+          <Icon name="iconoir:link" />
+        </a>
+      </h2>
+      <hr class={style__hr}/>
+    </>
+  ) :
+
+  level == 3 ? (
+    <h3 {id} class={root + " " + "group"}>
+      <slot />
+      <a href={"#" + id} class={root__a}>
+        <Icon name="iconoir:link" />
+      </a>
+    </h3>
+  ) :
+
+  level == 4 ? (
+    <h4 {id} class={root + " " + "group"}>
+      <slot />
+      <a href={"#" + id} class={root__a}>
+        <Icon name="iconoir:link" />
+      </a>
+    </h4>
+  ) :
+
+  level == 5 ? (
+    <h5 {id} class={root + " " + "group"}>
+      <slot />
+      <a href={"#" + id} class={root__a}>
+        <Icon name="iconoir:link" />
+      </a>
+    </h5>
+  ) :
+
+  <h6 {id} class={root + " " + "group"}>
+    <slot />
+    <a href={"#" + id} class={root__a}>
+        <Icon name="iconoir:link" />
+      </a>
+  </h6>
+}
