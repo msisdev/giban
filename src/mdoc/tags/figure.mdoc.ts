@@ -1,7 +1,7 @@
 import { component, defineMarkdocConfig, nodes } from '@astrojs/markdoc/config'
 
 export default {
-  render: component('./src/components/mdoc/Figure.astro'),
+  render: component('./src/components/mdoc/tags/Figure.astro'),
   attributes: {
     width: {
       type: String,

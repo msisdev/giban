@@ -1,0 +1,30 @@
+---
+import getImgSrc from '@/lib/get-img-src'
+import { css } from 'styled-system/css'
+
+interface Props {
+  src: string
+  alt: string
+}
+const { src, alt } = Astro.props
+const { env } = Astro.locals.runtime
+const imgSrc = getImgSrc(env, src)
+
+const root = css({
+  display: "block",
+  maxW: "full",
+  maxH: "full",
+  objectFit: "contain",
+})
+
+const root__img = css({
+  maxW: "full",
+  maxH: "full",
+  objectFit: "contain",
+})
+---
+
+<picture class={root}>
+  <source src={imgSrc}>
+  <img {src} {alt} class={root__img} >
+</picture>
