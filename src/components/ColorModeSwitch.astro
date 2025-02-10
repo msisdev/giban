@@ -3,12 +3,11 @@ import { Icon } from "astro-icon/components"
 import { css } from "styled-system/css"
 
 const root = css({
-  color: "primary",
   cursor: "pointer",
 })
 
 ---
-<button id="theme-switch" class={root}>
+<button id="theme-switch" class={root} type="button" aria-label="Toggle color mode">
   <!-- Icons are prepared statically. You should load both. -->
   <Icon id="theme-switch__light" name="iconoir:sun-light" />
   <Icon id="theme-switch__dark" name="iconoir:half-moon" />

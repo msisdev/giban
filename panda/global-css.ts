@@ -1,6 +1,10 @@
 import { defineGlobalStyles } from "@pandacss/dev"
 
 export const globalCss = defineGlobalStyles({
+  "*": {
+    boxSizing: "border-box",
+  },
+
   "html, body": {
     height: "fit-content",
     minHeight: "100vh",
@@ -20,6 +24,7 @@ export const globalCss = defineGlobalStyles({
   "header, main, footer": {
     width: "full",
     maxWidth: "6xl",
+    // overflowX: "auto",
     marginLeft: "auto",
     marginRight: "auto",
     p: 4,
@@ -41,6 +46,7 @@ export const globalCss = defineGlobalStyles({
   "address, blockquote, dl, ol, p, pre, table, ul": {
     mb: 4,
   },
+  
 
   "h1": {
     fontSize: "5xl",
@@ -81,7 +87,7 @@ export const globalCss = defineGlobalStyles({
     color: "primary",
     position: "relative",
     _hover: {
-      color: "primary.500"
+      color: "primary.300"
     },
   },
 
@@ -119,6 +125,7 @@ export const globalCss = defineGlobalStyles({
     width: "full",
     overflowX: "auto",
     fontSize: ".875rem",
+    fontFamily: "fira",
     fontWeight: "lighter",
     lineHeight: "normal",
     letterSpacing: "normal",

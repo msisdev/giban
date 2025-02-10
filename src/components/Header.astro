@@ -33,10 +33,24 @@ const root__menus = flex({
       <li><a href={paths.home} class={root__home}><strong>기반</strong></a></li>
     </ul>
     <ul class={root__menus}>
-      <li><a href={paths.search}><Icon name="iconoir:search" /></a></li>
-      <li><a href={paths.posts}><Icon name="iconoir:post" /></a></li>
-      <li><a href={paths.projects}><Icon name="iconoir:handbag" /></a></li>
-      <li><ColorModeSwitch /></li>
+      <li>
+        <a href={paths.search} aria-label="search">
+          <Icon name="iconoir:search" />
+        </a>
+      </li>
+      <li>
+        <a href={paths.posts} aria-label="posts">
+          <Icon name="iconoir:post" />
+        </a>
+      </li>
+      <li>
+        <a href={paths.projects} aria-label="projects">
+          <Icon name="iconoir:handbag" />
+        </a>
+      </li>
+      <li>
+        <ColorModeSwitch />
+      </li>
     </ul>
   </nav>
 </header>
