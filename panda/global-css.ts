@@ -34,7 +34,7 @@ export const globalCss = defineGlobalStyles({
   },
 
   "h1, h2, h3, h4, h5, h6": {
-    mb: 8,
+    my: 8,
     fontWeight: "bold",
   },
 
@@ -90,7 +90,7 @@ export const globalCss = defineGlobalStyles({
   },
 
   /**
-   * Table
+   * table
    */
   "table": {
     w: "full",
@@ -107,6 +107,40 @@ export const globalCss = defineGlobalStyles({
     p: 2,
   },
   "th": {
-    textTransform: "uppercase",
+    textAlign: "left",
+  },
+
+  /**
+   * pre, code
+   */
+  "pre": {
+    p: 4,
+    borderRadius: "box",
+    width: "full",
+    overflowX: "auto",
+    fontSize: ".875rem",
+    fontWeight: "lighter",
+    lineHeight: "normal",
+    letterSpacing: "normal",
+    fontSmooth: "auto",
+  },
+
+  /**
+   * Content
+   */
+  "article": {
+    "& p": {
+      textIndent: "1",
+    },
+    "& ol": {
+      listStyleType: "decimal",
+    },
+    "& ul": {
+      listStyleType: "disc",
+    },
+    "& li": {
+      ml: 4,
+      mb: 1,
+    },
   },
 })
