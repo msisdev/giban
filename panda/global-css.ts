@@ -99,8 +99,9 @@ export const globalCss = defineGlobalStyles({
    * table
    */
   "table": {
+    display: "block",
     w: "full",
-    overflow: "auto",
+    overflowX: "auto",
   },
   "thead": {
     fontWeight: "bold",
