@@ -5,6 +5,19 @@ export const globalCss = defineGlobalStyles({
     boxSizing: "border-box",
   },
 
+  "*::selection": {
+    background: "accent",
+    color: "text.50",
+  },
+  "*::moz-selection": {
+    background: "accent",
+    color: "text.50",
+  },
+  "*::webkit-selection": {
+    background: "accent",
+    color: "text.50",
+  },
+
   "html, body": {
     height: "fit-content",
     minHeight: "100vh",
