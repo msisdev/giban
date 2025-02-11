@@ -3,41 +3,67 @@ import { Icon } from "astro-icon/components"
 import { css } from "styled-system/css"
 
 const root = css({
+  color: "primary",
   cursor: "pointer",
 })
 
 ---
 <button id="theme-switch" class={root} type="button" aria-label="Toggle color mode">
   <!-- Icons are prepared statically. You should load both. -->
-  <Icon id="theme-switch__light" name="iconoir:sun-light" />
-  <Icon id="theme-switch__dark" name="iconoir:half-moon" />
+  <Icon id="theme-switch__sun" name="iconoir:sun-light" />
+  <Icon id="theme-switch__moon" name="iconoir:half-moon" style="display:none" />
 </button>
 
-<script>
-  import { $theme, switchTheme } from "@/lib/theme-store"
+<script is:inline>
+  const config = {
+    storageKey:     "color-mode",
+    attributeName:  "data-color-mode",
+    button:         document.getElementById("theme-switch"),
+    sun:            document.getElementById("theme-switch__sun"),
+    moon:           document.getElementById("theme-switch__moon"),
+  }
 
-  // button click -> switch theme state
-  document.getElementById("theme-switch")?.addEventListener("click", switchTheme)
+  // init state
+  let current = getCurrentMode()
+  updateIcon(current)
 
-  // theme change -> update icon
-  $theme.subscribe(theme => {
-    const light = document.getElementById("theme-switch__light")
-    const dark = document.getElementById("theme-switch__dark")
-    if (!light || !dark) return
+  // sync: current -> body attribute
+  document.body.setAttribute(config.attributeName, current)
 
-    switch (theme) {
-      case "light":
-        light.style.display = "block"
-        dark.style.display = "none"
-        break
-
-      case "dark":
-        light.style.display = "none"
-        dark.style.display = "block"
-        break
-
-      default:
-    }
+  // button listening click...
+  config.button.addEventListener("click", () => {
+    const next = current === "light"
+      ? "dark"
+      : "light"
+    
+    current = next                                          // update state
+    updateIcon(next)                                        // update icon
+    sessionStorage.setItem(config.storageKey, next)         // sync with session
+    document.body.setAttribute(config.attributeName, next)  // sync with attribute
   })
-  
+
+  function getCurrentMode() {
+    const fromStorage = (() => {
+      const v = window.sessionStorage.getItem(config.storageKey)
+      if (v === "light" || v === "dark") return v
+      return null
+    })()
+
+    const fromPreference = window.matchMedia("(prefers-color-scheme: dark").matches
+      ? "dark"
+      : "light"
+    
+    return fromStorage ?? fromPreference
+  }
+
+  function updateIcon(mode) {
+    // swap icon
+    if (mode === "light") {
+      config.sun.style.display = "block"
+      config.moon.style.display = "none"
+    } else {
+      config.sun.style.display = "none"
+      config.moon.style.display = "block"
+    }
+  }
 </script>
