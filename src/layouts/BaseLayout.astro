@@ -37,20 +37,3 @@ const bodyId = "body"
   </body>
 </html>
 
-<script>
-  const bodyId = "body"
-  import { $theme } from "@/lib/theme-store"
-
-  $theme.subscribe(theme => {
-    switch (theme) {
-      default:
-      case "light":
-        document.getElementById(bodyId)?.setAttribute("data-color-mode", "light")
-        break
-
-      case "dark":
-        document.getElementById(bodyId)?.setAttribute("data-color-mode", "dark")
-        break
-    }
-  })
-</script>
