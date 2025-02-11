@@ -60,7 +60,8 @@ const overview = css({
 
 ---
 <BaseLayout {url} {title} {description}>
-	<main>
+	<!-- https://pagefind.app/docs/indexing/ -->
+	<main data-pagefind-body>
 		<!-- Title -->
 		<hgroup class={hgroup}>
 			<h1>{title}</h1>
@@ -83,17 +84,13 @@ const overview = css({
 			</div>
 		</hgroup>
 
-		<!-- Content -->
+		
 		<div class={content_layout}>
 			<Overview
 				className={overview}
 				{title} {tags} {headings} {readingTime}
 			/>
-			
-			<!-- https://pagefind.app/docs/indexing/ -->
-			<section data-pagefind-body>
-				<slot />
-			</section>
+			<slot />
 		</div>
 	</main>
 </BaseLayout>
