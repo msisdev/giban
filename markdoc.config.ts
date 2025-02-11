@@ -8,7 +8,7 @@ export default defineMarkdocConfig({
   tags,
   extends: [
     shiki({
-      theme:'one-dark-pro',
+      theme: "catppuccin-frappe",
     }),
   ],
 })
