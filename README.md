@@ -52,7 +52,7 @@ $ bun create cloudflare@latest
     ```js
     // astro.config.mjs
     export default defineConfig({
-      // Rmove this block
+      // ↓ Remove this block ↓
       adapter: cloudflare({
         platformProxy: {
           enabled: true
@@ -66,6 +66,8 @@ $ bun create cloudflare@latest
 
 If you get error `Cannot find module 'astro:content' or its corresponding type declarations`
 - `$ bunx astro sync`
+
+
 
 
 
@@ -85,6 +87,8 @@ I intentionally didn't add comment system because
 2. it is easy to be added.
 
 Checkout either [giscus](https://giscus.app) or [utterances](https://utteranc.es/).
+
+
 
 
 
