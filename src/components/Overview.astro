@@ -15,15 +15,11 @@ interface Props {
 
 const { className, title, tags, headings, readingTime } = Astro.props
 
-const heading1 = headings.find(v => v.depth == 1)
-
 const root = css({
   h: "fit-content",
   bg: "bg.50",
   borderRadius: "box",
   p: 4,
-
-  
 })
 
 const root__headings = css({
@@ -40,16 +36,6 @@ const root__headings = css({
   },
 })
 
-const info = flex({
-  flexWrap: "wrap",
-  gap: 4,
-})
-const info__item = flex({
-  m: 0,
-  alignItems: "center",
-  gap: 1,
-})
-
 const root__tags = flex({
   gap: 4,
 })
@@ -57,10 +43,7 @@ const root__tags = flex({
 
 <aside class={`${root} ${className}`}>
   <section>
-    <!-- Title -->
-    <a href={"#" + heading1?.slug}>
-      <p><strong>{title}</strong></p>
-    </a>
+    <p><strong>Overview</strong></p>
 
     <!-- Headings -->
     <ul class={root__headings}>
@@ -76,14 +59,7 @@ const root__tags = flex({
     </ul>
   </section>
 
-  <section class={info}>
-    <!-- Reading time -->
-    <p class={info__item}>
-      <Icon name="iconoir:clock" />
-      <span>{readingTime}m to read</span>
-    </p>
-  </section>
-
+  <!-- Tags -->
   <ul class={root__tags}>
     {
       tags.map(tag => (

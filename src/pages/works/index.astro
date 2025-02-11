@@ -1,0 +1,40 @@
+---
+import WorkCard from "@/components/ui/WorkCard.astro"
+import paths from "@/config/paths"
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import { getCollection } from "astro:content"
+import { css } from "styled-system/css"
+
+const title = "작업"
+const description = "내 작업"
+const { href: url } = Astro.url
+
+const works = (await getCollection("work"))
+  .filter(v => v.data.publish)
+  .sort(
+    ({ data: { start: dateA } }, { data: { start: dateB } }) =>
+      dateB.valueOf() - dateA.valueOf(),
+  )
+
+const root__ul = css({
+  "& li": {
+    mb: 4,
+  },
+})
+---
+
+<BaseLayout {title} {description} {url}>
+  <!-- https://pagefind.app/docs/indexing/ -->
+  <main>
+    <h2>Works</h2>
+    <ul class={root__ul}>
+      {
+        works.map(({ id, data: { title, description, start, end } }) => (
+          <li>
+            <WorkCard href={paths.workDetail(id)} {title} {description} {start} {end} />
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</BaseLayout>

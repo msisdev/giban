@@ -100,7 +100,7 @@ export const globalCss = defineGlobalStyles({
     color: "primary",
     position: "relative",
     _hover: {
-      color: "primary.300"
+      textDecoration: "underline",
     },
   },
 

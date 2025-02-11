@@ -18,6 +18,7 @@ const root__nav = flex({
 
 const root__home = css({
   fontSize: "3xl",
+  textDecoration: "none",
 })
 
 const root__menus = flex({
@@ -30,7 +31,9 @@ const root__menus = flex({
 <header class={root}>
   <nav class={root__nav}>
     <ul>
-      <li><a href={paths.home} class={root__home}><strong>기반</strong></a></li>
+      <li>
+        <a href={paths.home} class={root__home}><strong>기반</strong></a>
+      </li>
     </ul>
     <ul class={root__menus}>
       <li>
@@ -44,7 +47,7 @@ const root__menus = flex({
         </a>
       </li>
       <li>
-        <a href={paths.projects} aria-label="projects">
+        <a href={paths.works} aria-label="projects">
           <Icon name="iconoir:handbag" />
         </a>
       </li>
