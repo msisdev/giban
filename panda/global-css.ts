@@ -53,8 +53,8 @@ export const globalCss = defineGlobalStyles({
   "h1, h2, h3, h4, h5, h6": {
     my: 8,
     fontWeight: "bold",
-    overflowWrap: "normal",
-    wordBreak: "normal",
+    // overflowWrap: "normal",
+    wordBreak: "keep-all",
   },
 
   "address, blockquote, dl, ol, p, pre, table, ul": {

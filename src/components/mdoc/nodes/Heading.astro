@@ -9,17 +9,13 @@ interface Props {
 const { level, id } = Astro.props
 
 const root = css({
-  gap: 4,
   // overflowWrap: "normal",
-  wordBreak: "break-all",
-  textWrap: "wrap",
+  wordBreak: "keep-all",
 })
 
 const h2 = css({
-  gap: 4,
-  mt: 32,
-  mb: 2,
-  wordBreak: "break-all",
+  borderBottom: "primary",
+  pb: "1.5",
 })
 
 const root__span = css({ verticalAlign: "middle" })
@@ -32,15 +28,11 @@ const root__a = css({
   ml: "2",
   color: "primary.300",
 })
-
-const root_hr = css({
-  mb: 8,
-})
 ---
 
 {
   level == 1 ? (
-    <h1 {id} class={root + " " + "group"}>
+    <h1 {id} class={`${root} group`}>
       <span class={root__span}><slot /></span>
       <a href={"#" + id} class={root__a}>
         <Icon name="iconoir:link" />
@@ -49,19 +41,16 @@ const root_hr = css({
   ) :
 
   level == 2 ? (
-    <>
-      <h2 {id} class={`${root} ${h2} group`}>
-        <span class={root__span}><slot /></span>
-        <a href={"#" + id} class={root__a}>
-          <Icon name="iconoir:link" />
-        </a>
-      </h2>
-      <hr class={root_hr}/>
-    </>
+    <h2 {id} class={`${root} ${h2} group`}>
+      <span class={root__span}><slot /></span>
+      <a href={"#" + id} class={root__a}>
+        <Icon name="iconoir:link" />
+      </a>
+    </h2>
   ) :
 
   level == 3 ? (
-    <h3 {id} class={root + " " + "group"}>
+    <h3 {id} class={`${root} group`}>
       <span class={root__span}><slot /></span>
       <a href={"#" + id} class={root__a}>
         <Icon name="iconoir:link" />
@@ -70,7 +59,7 @@ const root_hr = css({
   ) :
 
   level == 4 ? (
-    <h4 {id} class={root + " " + "group"}>
+    <h4 {id} class={`${root} group`}>
       <span class={root__span}><slot /></span>
       <a href={"#" + id} class={root__a}>
         <Icon name="iconoir:link" />
@@ -79,7 +68,7 @@ const root_hr = css({
   ) :
 
   level == 5 ? (
-    <h5 {id} class={root + " " + "group"}>
+    <h5 {id} class={`${root} group`}>
       <span class={root__span}><slot /></span>
       <a href={"#" + id} class={root__a}>
         <Icon name="iconoir:link" />
@@ -87,7 +76,7 @@ const root_hr = css({
     </h5>
   ) :
 
-  <h6 {id} class={root + " " + "group"}>
+  <h6 {id} class={`${root} group`}>
     <span class={root__span}><slot /></span>
     <a href={"#" + id} class={root__a}>
         <Icon name="iconoir:link" />
