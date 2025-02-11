@@ -2,11 +2,11 @@
 import { getCollection, render } from "astro:content"
 import { getReadingTime } from "@/lib/get-reading-time"
 import ContentLayout from "@/layouts/ContentLayout.astro"
-import { getDateString } from "@/lib/get-date-string"
+import { getDateString, getWorkingDateString } from "@/lib/get-date-string"
 
 export async function getStaticPaths() {
-	const blogs = (await getCollection("blog")).filter(v => v.data.publish)
-	return blogs.map(entry => ({
+	const works = (await getCollection("work")).filter(v => v.data.publish)
+	return works.map(entry => ({
 		params: { slug: entry.id },
 		props: { entry },
 	}))
@@ -15,13 +15,13 @@ export async function getStaticPaths() {
 const { entry } = Astro.props
 const { href: url } = Astro.url
 const { data } = entry
-const { title, description, date, tags } = data
+const { title, description, date, start, end, tags } = data
 const { Content, headings } = await render(entry)
 const readingTime = getReadingTime(entry)
 ---
 
 <ContentLayout
-	{title} description={description ?? ""} date={getDateString(date, ".")}
+	{title} description={description ?? ""} date={getWorkingDateString(start, end)}
 	{tags} {url} {headings} {readingTime}
 >
 	<Content frontmatter={data} />

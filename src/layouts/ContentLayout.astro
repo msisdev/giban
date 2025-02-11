@@ -3,34 +3,54 @@ import { css } from "styled-system/css"
 import BaseLayout from "./BaseLayout.astro"
 import Overview from "@/components/Overview.astro"
 import type { MarkdownHeading } from 'astro'
+import { flex } from "styled-system/patterns"
+import { Icon } from "astro-icon/components"
 
 interface Props {
   title: string
-	tags: string[]
   description: string
+	date?: string,
+	tags: string[]
   url: string
   headings: MarkdownHeading[]
   readingTime: number
 }
 
 const {
-	title,
-	tags,
-	description,
-	url,
-	headings,
-	readingTime,
+	title, description, date,
+	tags, url, headings, readingTime,
 } = Astro.props
 
-const root = css({
+// Styles
+const hgroup = css({
+	textAlign: "center",
+	mb: 16,
+})
+const hgroup__description = css({
+	fontSize: "2xl",
+	mb: 8,
+})
+const hgroup__info = flex({
+	justifyContent: "center",
+  flexWrap: "wrap",
+  gap: 4,
+})
+const hgroup__info_item = flex({
+  m: 0,
+  alignItems: "center",
+  gap: 1,
+})
+
+// Responsive layout
+const content_layout = css({
 	lg: {
 		display: "grid",
 		gridTemplateColumns: "16rem 1fr",
 		gap: "8"
 	},
 })
-
-const root__overview = css({
+const overview = css({
+	mb: 16,
 	lg: {
     position: "sticky",
     top: "8",
@@ -40,18 +60,40 @@ const root__overview = css({
 
 ---
 <BaseLayout {url} {title} {description}>
-	<main class={root}>
-		<Overview
-			className={root__overview}
-			{title}
-			{tags}
-			{headings}
-			{readingTime}
-		/>
-    
-    <!-- https://pagefind.app/docs/indexing/ -->
-		<section data-pagefind-body>
-			<slot />
-		</section>
+	<main>
+		<!-- Title -->
+		<hgroup class={hgroup}>
+			<h1>{title}</h1>
+			<p class={hgroup__description}>{description}</p>
+
+			<div class={hgroup__info}>
+				<!-- Date -->
+				{date ? (
+					<p class={hgroup__info_item}>
+						<Icon name="iconoir:calendar" />
+						<span>{date}</span>
+					</p>
+				) : null}
+
+				<!-- Reading time -->
+				<p class={hgroup__info_item}>
+					<Icon name="iconoir:clock" />
+					<span>{readingTime}m to read</span>
+				</p>
+			</div>
+		</hgroup>
+
+		<!-- Content -->
+		<div class={content_layout}>
+			<Overview
+				className={overview}
+				{title} {tags} {headings} {readingTime}
+			/>
+			
+			<!-- https://pagefind.app/docs/indexing/ -->
+			<section data-pagefind-body>
+				<slot />
+			</section>
+		</div>
 	</main>
 </BaseLayout>
