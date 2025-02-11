@@ -37,7 +37,6 @@ export const globalCss = defineGlobalStyles({
   "header, main, footer": {
     width: "full",
     maxWidth: "6xl",
-    // overflowX: "auto",
     marginLeft: "auto",
     marginRight: "auto",
     p: 4,
@@ -54,6 +53,8 @@ export const globalCss = defineGlobalStyles({
   "h1, h2, h3, h4, h5, h6": {
     my: 8,
     fontWeight: "bold",
+    overflowWrap: "normal",
+    wordBreak: "normal",
   },
 
   "address, blockquote, dl, ol, p, pre, table, ul": {

@@ -2,15 +2,18 @@
 import urls from "@/config/urls"
 import { Icon } from "astro-icon/components"
 import { css } from "styled-system/css"
+import { flex } from "styled-system/patterns"
 
 const root = css({
   padding: 4,
 })
 
-const root__line1 = css({
-  display: "flex",
+const root__line1 = flex({
   alignItems: "center",
+  flexWrap: "wrap",
   gap: 4,
+
+  "& p": { m: 0 },
   
   "& a": {
     display: "flex",
@@ -20,11 +23,10 @@ const root__line1 = css({
 })
 ---
 <footer class={root}>
-  <p class={root__line1}>
-    &copy;2025 by msisdev All rights reserved.
+  <div class={root__line1}>
+    <p>&copy;2025 by msisdev All rights reserved.</p>
     <a href={urls.github} aria-label="Github repository">
-      <Icon name="iconoir:github" /> Get this theme
+      <Icon name="iconoir:settings-profiles" /> Get this theme
     </a>
-  </p>
-  
+  </div>
 </footer>
