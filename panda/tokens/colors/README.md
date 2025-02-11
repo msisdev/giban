@@ -1,6 +1,6 @@
 # /panda/tokens/colors
 
-https://www.realtimecolors.com/?colors=0d0d10-fbfbfc-7b72a1-b5afce-8d82b9&fonts=Inter-Inter
+https://www.realtimecolors.com/?colors=0d1210-eaf0ee-374e47-a2abbe-59587e&fonts=Inter-Inter
 
 ## How to change color
 
