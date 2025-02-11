@@ -1,5 +1,6 @@
 ---
 import getImgSrc from '@/lib/get-img-src'
+import { css } from 'styled-system/css';
 
 interface Props {
   src: string;
@@ -12,12 +13,16 @@ interface Props {
 const { src, alt, width, height, caption } = Astro.props
 const { env } = Astro.locals.runtime
 const imgSrc = getImgSrc(env, src)
+const root__img = css({
+  maxW: "full",
+  maxH: "full",
+})
 ---
 
 <figure>
     <picture>
       <source src={imgSrc}>
-      <img {src} {alt} {width} {height} />
+      <img {src} {alt} {width} {height} class={root__img} />
     </picture>
     {caption && <figcaption>{caption}</figcaption>}
 </figure>
