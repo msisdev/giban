@@ -6,30 +6,33 @@ import PostCard from "@/components/ui/PostCard.astro"
 import paths from "@/config/paths"
 
 export const getStaticPaths = (async () => {
+  // number of pages to display
   const size = 10
 
+  // choose collection to display
   const blogs = (await getCollection("blog"))
     .filter(v => v.data.publish)
-    
-  const length = blogs.length
+    .sort(
+      ({ data: { date: dateA } }, { data: { date: dateB } }) =>
+        dateB.valueOf() - dateA.valueOf(),
+    )
+  const total = blogs.length
 
-  // chunk entries
+  // chunk entries into many pages
   const chunks = []
-  for (let i = 0; i < length; i += size) {
-    chunks.push(blogs.slice(i, Math.min(i + size, length)))
+  for (let i = 0; i < total; i += size) {
+    chunks.push(blogs.slice(i, Math.min(i + size, total)))
   }
 
+  // provide information for each page
   return chunks.map((chunk, page) => ({
     params: {
       slug: page == 0 ? "" : page
     },
     props: {
-      entries: chunk.sort(
-        ({ data: { date: dateA } }, { data: { date: dateB } }) =>
-          dateB.valueOf() - dateA.valueOf(),
-      ),
+      entries: chunk,
       size,
-      total: length,
+      total,
     }
   }))
 }) satisfies GetStaticPaths
@@ -40,15 +43,16 @@ const { entries, size, total, } = Astro.props
 const maxPage = Math.floor(total / size)
 
 // head
-const title = "Posts | Giban"
+const title = "Posts"
 const description = `All posts`
-const { href: url } = Astro.url
 ---
 
-<BaseLayout {url} {title} {description}>
+<BaseLayout {title} {description}>
   <main>
     <h2>All Posts</h2>
     <p>total {total} posts</p>
+
+    <!-- display pages -->
     <section>
       <ol>
         {
@@ -64,6 +68,7 @@ const { href: url } = Astro.url
       </ol>
     </section>
 
+    <!-- pagination buttons -->
     <section>
       {0 < Number(page)
         ? <a>Prev</a>

@@ -1,5 +1,5 @@
 ---
-import getImgSrc from '@/lib/get-img-src'
+import { getCloudflareImgSrc } from '@/lib/get-img-src'
 import { css } from 'styled-system/css'
 
 interface Props {
@@ -7,8 +7,9 @@ interface Props {
   alt: string
 }
 const { src, alt } = Astro.props
+
+// CLOUDFLARE_ONLY
 const { env } = Astro.locals.runtime
-const imgSrc = getImgSrc(env, src)
 
 const root = css({
   display: "block",
@@ -16,15 +17,9 @@ const root = css({
   maxH: "full",
   objectFit: "contain",
 })
-
-const root__img = css({
-  maxW: "full",
-  maxH: "full",
-  objectFit: "contain",
-})
 ---
 
 <picture class={root}>
-  <source src={imgSrc}>
-  <img {src} {alt} class={root__img} >
+  <source src={getCloudflareImgSrc(env, src)}>
+  <img {src} {alt}>
 </picture>

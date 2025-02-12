@@ -1,3 +1,4 @@
+// https://docs.astro.build/en/guides/integrations-guide/markdoc/
 import { defineMarkdocConfig } from '@astrojs/markdoc/config'
 import shiki from'@astrojs/markdoc/shiki'
 import * as nodes from "@/config/mdoc/nodes"

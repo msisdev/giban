@@ -1,4 +1,5 @@
-export default function getImgSrc(env: Env, src: string) {
+// CLOUDFLARE_ONLY
+export function getCloudflareImgSrc(env: Env, src: string) {
   switch (env.WHICH_ENV) {
     case "development":
       return src

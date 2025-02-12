@@ -2,14 +2,12 @@
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import AstroSearch from "astro-pagefind/components/Search"
 
+const title = "Search"
+const description = "Search pages"
 ---
 
-<BaseLayout>
-  <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
-  <script is:inline src="/pagefind/pagefind-ui.js"></script>
-
+<BaseLayout {title} {description}>
   <main>
-    <!-- <div id="search"></div> -->
      <AstroSearch className="pagefind-ui" />
   </main>
 </BaseLayout>
