@@ -1,6 +1,6 @@
 import { defineGlobalFontface, defineTokens } from "@pandacss/dev"
 
-// This code creates font faces from your font file.
+// This code creates font faces from font file at /public.
 export const globalFontFace = defineGlobalFontface({
   // "My Font Family": {
   //   src: [

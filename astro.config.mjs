@@ -8,6 +8,7 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
+  // CLOUDFLARE_ONLY
   adapter: cloudflare({
     platformProxy: {
       enabled: true

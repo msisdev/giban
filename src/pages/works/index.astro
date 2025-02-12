@@ -5,9 +5,8 @@ import BaseLayout from "@/layouts/BaseLayout.astro"
 import { getCollection } from "astro:content"
 import { css } from "styled-system/css"
 
-const title = "작업"
-const description = "내 작업"
-const { href: url } = Astro.url
+const title = "Works"
+const description = "My works"
 
 const works = (await getCollection("work"))
   .filter(v => v.data.publish)
@@ -23,7 +22,7 @@ const root__ul = css({
 })
 ---
 
-<BaseLayout {title} {description} {url}>
+<BaseLayout {title} {description}>
   <!-- https://pagefind.app/docs/indexing/ -->
   <main>
     <h2>Works</h2>

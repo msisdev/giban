@@ -1,4 +1,4 @@
-// https://docs.astro.build/en/reference/modules/astro-content/#astrocontent-types
+// https://docs.astro.build/en/reference/modules/astro-content/#definecollection
 
 import { glob } from "astro/loaders"
 import { defineCollection, z } from "astro:content"
@@ -12,7 +12,10 @@ const blogSchema = z.object({
 })
 
 const blog = defineCollection({
-	loader: glob({ pattern: "**/*.mdoc", base: "./src/content/blogs" }),
+	loader: glob({
+		pattern: "**/*.mdoc",
+		base: "./src/content/blogs",
+	}),
 	schema: () => blogSchema,
 })
 
@@ -27,7 +30,10 @@ const workSchema = z.object({
 })
 
 const work = defineCollection({
-	loader: glob({ pattern: "**/*.mdoc", base: "./src/content/works" }),
+	loader: glob({
+		pattern: "**/*.mdoc",
+		base: "./src/content/works",
+	}),
 	schema: () => workSchema,
 })
 

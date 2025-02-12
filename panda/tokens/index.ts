@@ -6,5 +6,10 @@ import { radii } from "./radii"
 import { borders } from "./borders"
 import { fontSizes } from "./font-sizes"
 
-export const tokens = { borders, fonts, fontSizes, gradients, lineHeights, sizes }
-export const semanticTokens = { colors, radii }
+export const tokens = {
+  borders, fonts, fontSizes, gradients, lineHeights, sizes
+}
+
+export const semanticTokens = {
+  colors, radii,
+}

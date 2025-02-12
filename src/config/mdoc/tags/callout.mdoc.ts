@@ -1,4 +1,6 @@
-import { component } from '@astrojs/markdoc/config';
+import { component } from '@astrojs/markdoc/config'
+import type { MarkdocComponent } from '../config'
+
 
 export default {
   render: component("./src/components/mdoc/tags/Callout.astro"),
@@ -7,4 +9,4 @@ export default {
       type: String,
     },
   },
-}
+} satisfies MarkdocComponent

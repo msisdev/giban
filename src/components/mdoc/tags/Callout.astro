@@ -21,7 +21,7 @@ const root = flex({
   p: 4,
   mb:4,
   gap: 4,
-  border: "primary",
+  bg: "primary.200",
   borderRadius: "box",
 
   "& > *": {
@@ -35,12 +35,3 @@ const root = flex({
   <p>{getIcon()}</p>
   <slot />
 </div>
-
-<style>
-  .callout {
-    display: inline-flex;
-    gap: .5rem;
-    width: 100%;
-    border: 1px black solid;
-  }
-</style>

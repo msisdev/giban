@@ -19,9 +19,9 @@ export const globalCss = defineGlobalStyles({
   },
 
   "html, body": {
-    height: "fit-content",
-    minHeight: "100vh",
-    width: "full",
+    height: "fit-content",    // apply dark theme on entire page
+    minHeight: "100vh",       // push footer to bottom
+    width: "full",            // in case you want to use screen-wide effect
     color: "text",
     backgroundColor: "bg",
     lineHeight: "1.5",
@@ -30,7 +30,7 @@ export const globalCss = defineGlobalStyles({
   },
 
   "body": {
-    display: "flex",
+    display: "flex",          // to allow main to extend its height
     flexDirection: "column",
   },
 
@@ -42,13 +42,9 @@ export const globalCss = defineGlobalStyles({
     p: 4,
   },
 
-  "main": {
-    flex: "1",
-  },
+  "main": { flex: "1" },
 
-  "section": {
-    mb: 8,
-  },
+  "section": { mb: 8 },
 
   "h1, h2, h3, h4, h5, h6": {
     my: 8,
@@ -56,11 +52,6 @@ export const globalCss = defineGlobalStyles({
     // overflowWrap: "normal",
     wordBreak: "keep-all",
   },
-
-  "address, blockquote, dl, ol, p, pre, table, ul": {
-    mb: 4,
-  },
-  
 
   "h1": {
     fontSize: "5xl",
@@ -105,9 +96,11 @@ export const globalCss = defineGlobalStyles({
     },
   },
 
-  "hr": {
-    color: "primary"
+  "address, blockquote, dl, ol, p, pre, table, ul": {
+    mb: 4,
   },
+  
+  "hr": { color: "primary" },
 
   /**
    * table
@@ -148,7 +141,7 @@ export const globalCss = defineGlobalStyles({
   },
 
   /**
-   * Content
+   * article (currently used for content only)
    */
   "article": {
     "& p": {
