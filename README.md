@@ -1,8 +1,8 @@
 # [giban](https://giban.pages.dev/)
 
-> giban (Korean, 기반): a foundation, or the foundation of a thing
+Minimal blog starter with AstroJS
 
-giban is a minimal, fully functional blog. It has minimal style and CSS-in-JS boilerplates. Start building your own style from this theme or swap color set and ready to go.
+![Astro](https://img.shields.io/badge/astro-%232C2052.svg?style=for-the-badge&logo=astro&logoColor=white)
 
 
 
