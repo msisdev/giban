@@ -4,6 +4,9 @@ import BaseLayout from "@/layouts/BaseLayout.astro"
 import { getCollection } from "astro:content"
 import PostCard from "@/components/ui/PostCard.astro"
 import paths from "@/config/paths"
+import { Icon } from "astro-icon/components"
+import { css } from "styled-system/css"
+import { grid } from "styled-system/patterns"
 
 export const getStaticPaths = (async () => {
   // number of pages to display
@@ -27,7 +30,7 @@ export const getStaticPaths = (async () => {
   // provide information for each page
   return chunks.map((chunk, page) => ({
     params: {
-      slug: page == 0 ? "" : page
+      slug: page+1 == 1 ? undefined : String(page+1)
     },
     props: {
       entries: chunk,
@@ -41,10 +44,30 @@ export const getStaticPaths = (async () => {
 const page = Astro.params.slug
 const { entries, size, total, } = Astro.props
 const maxPage = Math.floor(total / size)
+const pageNum = page ? Number(page) : 1
 
 // head
 const title = "Posts"
 const description = `All posts`
+
+// styles
+const root__nav = grid({
+  w: "full",
+  maxW: "64",
+  fontSize: "3xl",
+  gridTemplateColumns: "1fr 1fr",
+  justifyContent: "center",
+
+  "& a": {
+    display: "flex",
+    alignItems: "center",
+    gap: 2,
+    p: 2,
+  },
+})
+const root__next = css({
+  gridColumnStart: 2
+})
 ---
 
 <BaseLayout {title} {description}>
@@ -69,13 +92,23 @@ const description = `All posts`
     </section>
 
     <!-- pagination buttons -->
-    <section>
-      {0 < Number(page)
-        ? <a>Prev</a>
+    <nav class={root__nav}>
+      {1 < pageNum
+        ? (
+          <a href={paths.postPages(pageNum - 1)}>
+            <Icon name="iconoir:arrow-left-circle" />
+            Prev
+          </a>
+        )
         : null}
-      {Number(page) < maxPage
-        ? <a>Next</a>
+      {pageNum < maxPage
+        ? (
+          <a href={paths.postPages(pageNum + 1)} class={root__next}>
+            Next
+            <Icon name="iconoir:arrow-right-circle" />
+          </a>
+        )
         : null}
-    </section>
+    </nav>
   </main>
 </BaseLayout>
