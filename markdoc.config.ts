@@ -8,6 +8,7 @@ export default defineMarkdocConfig({
   nodes,
   tags,
   extends: [
+    // https://shiki.style/
     shiki({
       theme: "catppuccin-frappe",
     }),
