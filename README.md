@@ -62,8 +62,8 @@ $ bun create cloudflare@latest
     ```
 3. `$bun rm @cloudflare/workers-types`
 4. Remove/edit cloudflare specific codes
-  - Search codes by `CLOUDFLARE_ONLY` keyword
-  - Edit codes
+  1. Search codes by `CLOUDFLARE_ONLY` keyword
+  2. Edit codes
 
 ### Troubleshoot
 
