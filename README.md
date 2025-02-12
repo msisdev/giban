@@ -1,27 +1,29 @@
 # [giban](https://giban.pages.dev/)
 
-Minimal blog starter with AstroJS
-
 > giban (Korean, 기반): a foundation, or the foundation of a thing
 
-![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white)
-![Astro](https://img.shields.io/badge/astro-%232C2052.svg?style=for-the-badge&logo=astro&logoColor=white)
+giban is a minimal, fully functional blog. It has minimal style and CSS-in-JS boilerplates. Start building your own style from this theme or swap color set and ready to go.
+
+
+
+
 
 ## Overview
 - [Quick Start](#quick-start)
   - [With cloudflare](#with-cloudflare)
   - [Without cloudflare](#without-cloudflare)
   - [Troubleshoot](#troubleshoot)
-- [Features](#features)
-  - [About comment system](#about-comment-system)
-- [Why giban](#why-giban)
-  - [AstroJS](#astrojs)
-  - [MDX vs Markdoc](#mdx-vs-markdoc)
-  - [vs Digital Garden](#vs-digital-garden)
+- [Introduction](#introduction)
+  - [Who can use this](#who-can-use-this)
+  - [Stack](#stack)
+  - [Features](#features)
+  - [Why giban](#why-giban)
 - [Guides](#guides)
   - [How to change color set](#how-to-change-color-set)
   - [How to use icon](#how-to-use-icon)
 - [Refs](#refs)
+
+
 
 
 
@@ -74,30 +76,47 @@ If you get error `Cannot find module 'astro:content' or its corresponding type d
 
 
 
-## Features
-- Markdoc
-- Common blog patterns
-  - Table of content
-  - Reading time
-  - Search by [pagefind](https://pagefind.app/)
-  - Image optimization by [Cloudflare Images](https://developers.cloudflare.com/images/transform-images/transform-via-url/)
-  - Dark mode switch
-- Styling kit
-  - PandaCSS
-  - Iconify (iconoir)
+## Introduction
+> giban (Korean, 기반): a foundation, or the foundation of a thing
 
-I intentionally didn't add comment system because
-1. it is not essential
-2. it is easy to be added.
+giban is a minimal, fully functional blog. It has minimal style and CSS-in-JS boilerplates.  
+Start building your own style from this theme. Or swap color set and ready to go.
 
-Checkout either [giscus](https://giscus.app) or [utterances](https://utteranc.es/).
+### Who can use this?
+Bloggers: swap color set and ready to go  
+CSS beginners:  launch blog and develop style progressively  
+CSS pros: save time by skipping tokens & scripts  
+Developers: just explore patterns and implementations in AstroJS  
+
+### Stack
+[AstroJS](https://astro.build/)
+[Markdoc](https://markdoc.dev/)
+[Pagefind](https://pagefind.app/)
+[PandaCSS](https://panda-css.com/)
+[Iconify](https://iconify.design/)
+
+### Features
+Common blog patterns
+- Table of content
+- Reading time
+- Search by [pagefind](https://pagefind.app/)
+- Image optimization by [Cloudflare Images](https://developers.cloudflare.com/images/transform-images/transform-via-url/)
+- Dark mode switch
+
+Styling kit
+- Change color instantly (read the guide below)
+- Write style with PandaCSS
+- Use icon with Iconify
+
+I didn't add comment system because it is not minimal and easy to be added. Checkout discus or utterances.
+
+Checkout either [giscus](https://giscus.app) or [utterances](https://utteranc.es).
 
 
 
 
 
 ## Why giban?
-Why use giban stack?
 
 ### [AstroJS](https://astro.build/)
 AstroJS is a new FrontEnd framework contender of JS.
@@ -113,7 +132,7 @@ import Callout from '../components/Callout.astro'
 I'm normal markdown line.
 
 <Callout type="check">
-  I'm callout component
+  I'm custom component
 </Callout>
 ```
 
@@ -122,7 +141,7 @@ While Markdoc is like expressive markdown.
 I'm normal markdown line.
 
 {% callout type="check" %}
-  I'm callout component
+  I'm custom component
 {% /callout %}
 ```
 
@@ -179,13 +198,15 @@ But you don't need Digital Garden if-
 
 ## Guides
 
-### How to change semantic color
-You can change colors immediately using [Realtime Colors](https://www.realtimecolors.com/).  
+### How to change color set
+You can change colors instantly by using [Realtime Colors](https://www.realtimecolors.com/).  
 Please follow this [guide](https://github.com/msisdev/giban/tree/master/panda/tokens/colors).
 
 ### How to use icon
 This project is using [Astro Icon](https://www.astroicon.dev/) and [Iconify](https://iconify.design/).  
 Currently [iconoir](https://icon-sets.iconify.design/iconoir/?keyword=iconoi) is installed. To replace this, follow this [guide](https://www.astroicon.dev/guides/customization/#open-source-icon-sets).
+
+
 
 
 
