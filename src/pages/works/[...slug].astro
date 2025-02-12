@@ -2,7 +2,7 @@
 import { getCollection, render } from "astro:content"
 import { getReadingTime } from "@/lib/get-reading-time"
 import ContentLayout from "@/layouts/ContentLayout.astro"
-import { getDateString, getWorkingDateString } from "@/lib/get-date-string"
+import { getWorkingDateString } from "@/lib/get-date-string"
 
 export async function getStaticPaths() {
 	const works = (await getCollection("work")).filter(v => v.data.publish)
