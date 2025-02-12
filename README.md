@@ -104,9 +104,9 @@ Common blog patterns
 - Dark mode switch
 
 Styling kit
-- Change color instantly (read the guide below)
-- Write style with PandaCSS
-- Use icon with Iconify
+- Instant color swap (read the github guide)
+- PandaCSS boilerplates
+- Icon by Iconify
 
 I didn't add comment system because it is not minimal and easy to be added. Checkout discus or utterances.
 
@@ -193,6 +193,8 @@ But you don't need Digital Garden if-
 - you want to keep things simple.
 - you don't need Obsidian.
   - With help of Github Mobile app, you can create/edit files anywhere.
+
+
 
 
 
