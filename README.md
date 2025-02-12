@@ -97,6 +97,7 @@ Start building your own style from this theme. Or swap color set and ready to go
 
 ### Features
 Common blog patterns
+- Tags
 - Table of content
 - Reading time
 - Search by [pagefind](https://pagefind.app/)
