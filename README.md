@@ -83,17 +83,17 @@ giban is a minimal, fully functional blog. It has minimal style and CSS-in-JS bo
 Start building your own style from this theme. Or swap color set and ready to go.
 
 ### Who can use this?
-Bloggers: swap color set and ready to go  
-CSS beginners:  launch blog and develop style progressively  
-CSS pros: save time by skipping tokens & scripts  
-Developers: just explore patterns and implementations in AstroJS  
+- Bloggers: swap color set and ready to go  
+- CSS beginners:  launch blog and develop style progressively  
+- CSS pros: save time by skipping tokens & scripts  
+- Developers: just explore patterns and implementations in AstroJS  
 
 ### Stack
-[AstroJS](https://astro.build/)
-[Markdoc](https://markdoc.dev/)
-[Pagefind](https://pagefind.app/)
-[PandaCSS](https://panda-css.com/)
-[Iconify](https://iconify.design/)
+- [AstroJS](https://astro.build/)
+- [Markdoc](https://markdoc.dev/)
+- [Pagefind](https://pagefind.app/)
+- [PandaCSS](https://panda-css.com/)
+- [Iconify](https://iconify.design/)
 
 ### Features
 Common blog patterns
