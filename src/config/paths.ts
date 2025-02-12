@@ -5,6 +5,7 @@ const paths = {
   blogDetail: (id: string) => `/blogs/${id}`,
 
   posts: "/posts",
+  postPages: (page: number) => `/posts/${page <= 1 ? "" : page}`,
 
   search: "/search",
 
