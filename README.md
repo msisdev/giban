@@ -61,6 +61,9 @@ $ bun create cloudflare@latest
     })
     ```
 3. `$bun rm @cloudflare/workers-types`
+4. Remove/edit cloudflare specific codes
+  - Search codes by `CLOUDFLARE_ONLY` keyword
+  - Edit codes
 
 ### Troubleshoot
 
@@ -78,10 +81,11 @@ If you get error `Cannot find module 'astro:content' or its corresponding type d
   - Reading time
   - Search by [pagefind](https://pagefind.app/)
   - Image optimization by [Cloudflare Images](https://developers.cloudflare.com/images/transform-images/transform-via-url/)
-- Style with PandaCSS
   - Dark mode switch
+- Styling kit
+  - PandaCSS
+  - Iconify (iconoir)
 
-### About Comment system
 I intentionally didn't add comment system because
 1. it is not essential
 2. it is easy to be added.
@@ -93,11 +97,13 @@ Checkout either [giscus](https://giscus.app) or [utterances](https://utteranc.es
 
 
 ## Why giban?
-Or, why use giban stack?
+Why use giban stack?
 
 ### [AstroJS](https://astro.build/)
-AstroJS is a new FrontEnd framework for JS.
-
+AstroJS is a new FrontEnd framework contender of JS.
+- [Meta-framework](https://docs.astro.build/en/guides/integrations-guide/)
+- Built-in [SSG](https://docs.astro.build/en/guides/routing/#static-ssg-mode) support
+- Best performance by [Server island](https://astro.build/blog/future-of-astro-server-islands/)
 
 ### [MDX](https://mdxjs.com/) vs [Markdoc](https://markdoc.dev/)
 MDX is like JSX.
@@ -123,8 +129,8 @@ I'm normal markdown line.
 But you should aware that [@astrojs/markdoc](https://docs.astro.build/en/guides/integrations-guide/markdoc/) integration is in experimental stage.
 
 ### [PandaCSS](https://panda-css.com/)
-PandaCSS is a zero runtime CSS-in-JS that generates static css files at build stage.
-PandaCSS uses helper function to gerate class string. This lets your html remain simple.  
+PandaCSS is a [zero runtime CSS-in-JS](https://panda-css.com/docs/overview/why-panda#the-new-era-of-css-in-js) that generates static css files at build stage.  
+PandaCSS uses [helper function](https://panda-css.com/docs/concepts/writing-styles) to write styles fast.
 
 Writing styles in PandaCSS is like:
 ```astro
@@ -162,10 +168,10 @@ const root__line1 = css({
 ```
 
 ### vs Obsidian Digital Garden
-You may find [Digital Garden](https://dg-docs.ole.dev/) is more useful, if you want to use Obsidian.
+You may find [Obsidian Digital Garden](https://dg-docs.ole.dev/) is more useful, if you like Obsidian.
 
 But you don't need Digital Garden if-
-- you find Digital Garden stack is too much for your blog.
+- you want to keep things simple.
 - you don't need Obsidian.
   - With help of Github Mobile app, you can create/edit files anywhere.
 
@@ -173,14 +179,12 @@ But you don't need Digital Garden if-
 
 ## Guides
 
-### How to change color set
-You can use [Realtime Colors](https://www.realtimecolors.com/) to automate this.
-Follow this [guide](https://github.com/msisdev/giban/tree/master/panda/tokens/colors)
+### How to change semantic color
+You can change colors immediately using [Realtime Colors](https://www.realtimecolors.com/).  
+Please follow this [guide](https://github.com/msisdev/giban/tree/master/panda/tokens/colors).
 
 ### How to use icon
-This project is using [Astro Icon](https://www.astroicon.dev/).
-
-Astro Icon supports [Iconify](https://iconify.design/).
+This project is using [Astro Icon](https://www.astroicon.dev/) and [Iconify](https://iconify.design/).  
 Currently [iconoir](https://icon-sets.iconify.design/iconoir/?keyword=iconoi) is installed. To replace this, follow this [guide](https://www.astroicon.dev/guides/customization/#open-source-icon-sets).
 
 
