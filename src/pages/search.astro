@@ -8,7 +8,13 @@ const description = "Search pages"
 
 <BaseLayout {title} {description}>
   <main>
-     <AstroSearch className="pagefind-ui" />
+    <AstroSearch
+      className="pagefind-ui"
+      uiOptions={{
+        // https://pagefind.app/docs/ui/
+        // showImages: false,
+      }}
+    />
   </main>
 </BaseLayout>
 
