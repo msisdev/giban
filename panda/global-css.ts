@@ -47,40 +47,54 @@ export const globalCss = defineGlobalStyles({
   "section": { mb: 8 },
 
   "h1, h2, h3, h4, h5, h6": {
-    my: 8,
     fontWeight: "bold",
-    // overflowWrap: "normal",
     wordBreak: "keep-all",
+  },
+
+  "address, blockquote, dl, ol, p, pre, table, ul": {
+    mb: 4,
   },
 
   "h1": {
     fontSize: "5xl",
     lineHeight: "5xl",
+    mt: 24,
+    mb: 8,
   },
 
   "h2": {
     fontSize: "4xl",
     lineHeight: "4xl",
+    mt: 24,
+    mb: 8,
   },
 
   "h3": {
     fontSize: "3xl",
     lineHeight: "3xl",
+    mt: 24,
+    mb: 8,
   },
 
   "h4": {
     fontSize: "2xl",
     lineHeight: "2xl",
+    mt: 12,
+    mb: 8,
   },
 
   "h5": {
     fontSize: "xl",
     lineHeight: "xl",
+    mt: 12,
+    mb: 8,
   },
 
   "h6": {
     fontSize: "lg",
     lineHeight: "lg",
+    mt: 12,
+    mb: 8,
   },
 
   "p": {
@@ -94,10 +108,6 @@ export const globalCss = defineGlobalStyles({
     _hover: {
       textDecoration: "underline",
     },
-  },
-
-  "address, blockquote, dl, ol, p, pre, table, ul": {
-    mb: 4,
   },
   
   "hr": { color: "primary" },
@@ -121,6 +131,7 @@ export const globalCss = defineGlobalStyles({
     p: 2,
   },
   "th": {
+    minW: "8rem",
     textAlign: "left",
   },
 
@@ -144,6 +155,7 @@ export const globalCss = defineGlobalStyles({
    * article (currently used for content only)
    */
   "article": {
+    mb: 32,
     "& p": {
       textIndent: "1",
     },
@@ -151,7 +163,7 @@ export const globalCss = defineGlobalStyles({
       listStyleType: "decimal",
     },
     "& ul": {
-      listStyleType: "disc",
+      listStyleType: "circle",
     },
     "& li": {
       ml: 4,

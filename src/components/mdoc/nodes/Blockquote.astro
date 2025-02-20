@@ -1,0 +1,14 @@
+---
+import { css } from "styled-system/css"
+
+const root = css({
+  pl: 2,
+  borderLeft: "4px solid {colors.bg.500}",
+  bg: "bg.100",
+
+  "& p": { textIndent: 0 },
+})
+---
+<blockquote class={root}>
+  <slot />
+</blockquote>
