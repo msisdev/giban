@@ -20,10 +20,9 @@ const root = css({
 })
 
 const root__headings = css({
-  listStyleType: "disc",
+  // listStyleType: "disc",
 
   "& li": {
-    ml: 4,
     mb: 1,
   },
 
@@ -46,10 +45,12 @@ const root__tags = flex({
     <ul class={root__headings}>
       {
         headings
-          .filter(v => v.text.trim().length > 0 && v.depth == 2)
+          .filter(v => v.text.trim().length > 0 && v.depth < 4)
           .map(v => (
             <li>
-              <a href={"#" + v.slug}>{v.text}</a>
+              <a href={"#" + v.slug} style={`margin-left: ${v.depth * 8}px;`}>
+                {v.text}
+              </a>
             </li>
           ))
       }
