@@ -138,19 +138,28 @@ export const globalCss = defineGlobalStyles({
   /**
    * pre, code
    */
+  "pre, code": {
+    fontFamily: "fira",
+    letterSpacing: "normal",
+  },
   "pre": {
     p: 4,
     borderRadius: "box",
     width: "full",
     overflowX: "auto",
     fontSize: ".875rem",
-    fontFamily: "fira",
-    fontWeight: "lighter",
+    fontWeight: "normal",
     lineHeight: "normal",
-    letterSpacing: "normal",
     fontSmooth: "auto",
   },
-
+  "pre code": {
+    backgroundColor: "unset",
+  },
+  "code": {
+    px: 1,
+    backgroundColor: "bg.100",
+  },
+  
   /**
    * article (currently used for content only)
    */
@@ -166,7 +175,7 @@ export const globalCss = defineGlobalStyles({
       listStyleType: "circle",
     },
     "& li": {
-      ml: 4,
+      ml: 6,
       mb: 1,
     },
   },
