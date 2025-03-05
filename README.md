@@ -62,7 +62,7 @@ $ bun create cloudflare@latest
       }),
     })
     ```
-3. `$bun rm @cloudflare/workers-types`
+3. `$ bun rm @cloudflare/workers-types`
 4. Remove/edit cloudflare specific codes
   1. Search codes by `CLOUDFLARE_ONLY` keyword
   2. Edit codes
@@ -84,8 +84,8 @@ Start building your own style from this theme. Or swap color set and ready to go
 
 ### Who can use this?
 - Bloggers: swap color set and ready to go  
-- CSS beginners:  launch blog and develop style progressively  
-- CSS pros: save time by skipping tokens & scripts  
+- CSS Beginners:  launch blog and develop style progressively  
+- CSS Pros: save time by skipping tokens & scripts  
 - Developers: just explore patterns and implementations in AstroJS  
 
 ### Stack
@@ -120,7 +120,7 @@ Checkout either [giscus](https://giscus.app) or [utterances](https://utteranc.es
 ## Why giban?
 
 ### [AstroJS](https://astro.build/)
-AstroJS is a new FrontEnd framework contender of JS.
+AstroJS is a new contender of FrontEnd framework.
 - [Meta-framework](https://docs.astro.build/en/guides/integrations-guide/)
 - Built-in [SSG](https://docs.astro.build/en/guides/routing/#static-ssg-mode) support
 - Best performance by [Server island](https://astro.build/blog/future-of-astro-server-islands/)
